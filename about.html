@@ -6,7 +6,7 @@
     <title>Про мене | Mtlvdn Club</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
 <body style="background-color: #f2e5df;">
 
@@ -20,26 +20,29 @@
         <div class="about-content">
             <h1 class="about-title">Привіт, я Діана</h1>
             <p class="about-text">
-                Твій майстер погляду та естетики. Я вірю, що краса криється в деталях, а кожна жінка заслуговує на те, щоб почуватися впевненою щодня.
+                Твій майстер погляду та естетики. Я вірю, що краса криється в деталях, а кожна жінка заслуговує на те, щоб почуватися впевненою та чарівною щодня.
             </p>
             <p class="about-text">
-                Моя місія — підкреслити твою природну красу, зберігаючи здоров'я твоїх вій та брів. У роботі використовую лише преміальні матеріали та найсучасніші техніки ламінування.
+                У моїй студії ми створимо ідеальні вії та брови, які підкреслять твою природну красу та індивідуальність. Використовую тільки преміум матеріали та гарантую повну безпеку і комфорт під час процедури.
             </p>
-
-            <a href="javascript:void(0)" onclick="openModal()" class="mega-booking-btn">ЗАПИСАТИСЯ ДО МЕНЕ</a>
+            
+            <a href="javascript:void(0)" onclick="openModal()" class="mega-booking-btn" 
+               style="display: block !important; margin: 30px auto 0 auto !important; text-align: center !important; text-decoration: none !important; background-color: #a65e64 !important; color: white !important; padding: 14px 25px !important; width: 100% !important; max-width: 280px !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; font-weight: 500 !important; text-transform: uppercase !important; letter-spacing: 1px !important; box-shadow: 0 8px 15px rgba(166, 94, 100, 0.2) !important; box-sizing: border-box !important;">
+               Записатися до мене
+            </a>
         </div>
     </div>
 
     <div id="bookingModal" class="modal">
         <div class="modal-overlay" onclick="closeModal()"></div>
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 class="modal-title">Запишіться на прийом</h2>
+        <div class="modal-content" style="background-color: #f2e5df !important; position: relative; z-index: 5002; padding: 25px !important; border-radius: 24px !important; width: 88% !important; max-width: 340px !important; border: 2px solid #f8b3c6 !important; box-shadow: 0 15px 35px rgba(74, 28, 31, 0.15) !important; box-sizing: border-box !important;">
+            <span class="close-modal" onclick="closeModal()" style="position: absolute; top: 12px; right: 18px; font-size: 26px; color: #a65e64; cursor: pointer;">&times;</span>
+            <h2 class="modal-title" style="font-family: 'Playfair Display', serif !important; color: #4a1c1f !important; text-align: center !important; font-size: 22px !important; margin: 0 0 20px 0 !important;">Запишіться на прийом</h2>
             
             <form id="bookingForm">
-                <div class="input-group">
-                    <label>Оберіть послугу:</label>
-                    <select id="service" name="service" class="modal-input" required>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Оберіть послугу:</label>
+                    <select id="service" name="service" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
                         <option value="" disabled selected>Виберіть з переліку...</option>
                         <optgroup label="Вії">
                             <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
@@ -52,50 +55,58 @@
                             <option value="Депіляція над верхньою губою (200грн)">Депіляція над верхньою губою — 200 грн</option>
                         </optgroup>
                         <optgroup label="Комплекси">
-                            <option value="Complex (1000 грн)">Комплекс (Ламінування + фарбування брів та вій) — 1000 грн</option>
+                            <option value="Комплекс (1000 грн)">Комплекс (Ламінування вій та брів) — 1000 грн</option>
                         </optgroup>
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label>Ваше ім'я:</label>
-                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Ваше ім'я:</label>
+                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
                 </div>
 
-                <div class="input-group">
-                    <label>Номер телефону:</label>
-                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Номер телефону:</label>
+                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
                 </div>
 
-                <div class="row">
-                    <div class="input-group">
-                        <label>Дата:</label>
-                        <input type="date" name="date" class="modal-input" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Час:</label>
-                        <input type="time" name="time" class="modal-input" required>
-                    </div>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Дата візиту:</label>
+                    <input type="date" name="date" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; display: flex !important; align-items: center !important; justify-content: flex-start !important; -webkit-appearance: none !important; appearance: none !important;">
+                </div>
+                
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Час візиту:</label>
+                    <input type="time" name="time" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; display: flex !important; align-items: center !important; justify-content: flex-start !important; -webkit-appearance: none !important; appearance: none !important;">
                 </div>
 
-                <div class="input-group">
-                    <label>Коментар:</label>
-                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..."></textarea>
+                <div class="input-group" style="margin-bottom: 12px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Коментар:</label>
+                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..." style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; resize: none !important;"></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Підтвердити запис</button>
+                <button type="submit" class="submit-btn" style="background: #a65e64 !important; color: white !important; border: none !important; padding: 13px 0 !important; width: 100% !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; cursor: pointer !important; text-transform: uppercase; letter-spacing: 1px;">Підтвердити запис</button>
             </form>
         </div>
     </div>
 
-    <div id="success-modal" class="modal">
+    <div id="success-modal" class="modal" style="display: none;">
         <div class="modal-overlay" onclick="closeSuccessModal()"></div>
-        <div class="modal-content" style="text-align: center;">
-            <div class="success-icon-wrapper">
+        <div class="modal-content" style="text-align: center; background-color: #f2e5df !important; padding: 25px !important; border-radius: 24px !important; width: 88% !important; max-width: 340px !important; border: 2px solid #f8b3c6 !important; box-sizing: border-box !important;">
+            <div style="margin-bottom: 15px !important; display: inline-block;">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
                     <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#a65e64"/>
                 </svg>
             </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
+            <button onclick="closeSuccessModal()" class="submit-btn" style="background: #a65e64 !important; color: white !important; border: none !important; padding: 13px 0 !important; width: 100% !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; cursor: pointer !important; text-transform: uppercase;">Гаразд</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
             <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
             <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
             <button onclick="closeSuccessModal()" class="submit-btn">Гаразд</button>

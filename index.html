@@ -35,22 +35,22 @@
             <span class="sub-text">Lashes</span>
         </div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+      <div class="menu-toggle" id="mobile-menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-menu').classList.toggle('active');">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</div>
 
-        <nav class="nav-menu">
-            <div class="menu-glass-box">
-                <ul>
-                    <li><a href="services.html" class="menu-btn-item">Послуги</a></li>
-                    <li><a href="about.html" class="menu-btn-item">Про мене</a></li>
-                    <li><a href="#contacts" class="menu-btn-item">Контакти</a></li>
-                    <li><a href="javascript:void(0)" onclick="openModal()" class="menu-btn-item special">Записатися</a></li>
-                </ul>
-            </div>
-        </nav>
+<nav class="nav-menu" onclick="document.getElementById('mobile-menu').classList.remove('active'); this.classList.remove('active');">
+    <div class="menu-glass-box">
+        <ul>
+            <li><a href="services.html" class="menu-btn-item">Послуги</a></li>
+            <li><a href="about.html" class="menu-btn-item">Про мене</a></li>
+            <li><a href="#contacts" class="menu-btn-item">Контакти</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal()" class="menu-btn-item special">Записатися</a></li>
+        </ul>
+    </div>
+</nav>
         <img src="images/sakura.png" alt="Sakura" class="sakura-top-right">
     </header>
 

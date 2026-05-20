@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послуги | Mtlvdn Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #f2e5df;">
+
+<main class="services-container animate-fade" style="margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 20px;">
+        
+        <div style="text-align: left; margin-bottom: 30px;">
+            <a href="index.html" class="back-link" style="font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 2px; color: #a65e64; text-decoration: none; font-weight: 500; text-transform: uppercase;">← На головну</a>
+        </div>
+        
+        <h2 class="category-title" style="font-family: 'Playfair Display', serif; text-align: center; color: #4a1c1f; margin-bottom: 30px;">Вії</h2>
+        <div class="price-list" style="margin-bottom: 40px;">
+            <div class="price-item" onclick="openModal('Ламінування+фарбування+ботокс (500грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Ламінування + фарбування + ботокс</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">500 грн</span>
+            </div>
+            <div class="price-item" onclick="openModal('Фарбування вій (150 грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Фарбування вій</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">150 грн</span>
+            </div>
+        </div>
+
+        <h2 class="category-title" style="font-family: 'Playfair Display', serif; text-align: center; color: #4a1c1f; margin-bottom: 30px;">Брови</h2>
+        <div class="price-list">
+            <div class="price-item" onclick="openModal('Корекція брів (200 грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Корекція брів</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">200 грн</span>
+            </div>
+            <div class="price-item" onclick="openModal('Фарбування+корекція (400 грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Фарбування + корекція</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">400 грн</span>
+            </div>
+            <div class="price-item" onclick="openModal('Ламінування+фарбування+корекція (600грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Ламінування + фарбування + корекція</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">600 грн</span>
+            </div>
+            
+            <div class="price-item" onclick="openModal('Депіляція над верхньою губою (200грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Депіляція над верхньою губою</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">200 грн</span>
+            </div>
+            
+            <div class="price-item" onclick="openModal('Комплекс (1000 грн)')" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; cursor: pointer;">
+                <span class="name" style="font-family: 'Montserrat', sans-serif; color: #4a1c1f;">Комплекс (Ламінування + фарбування брів та вій)</span>
+                <span class="price" style="font-family: 'Montserrat', sans-serif; font-weight: 600; color: #a65e64; white-space: nowrap; margin-left: 10px;">1000 грн</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="openModal()" class="submit-btn" style="padding: 15px 40px; font-size: 16px; letter-spacing: 2px;">ЗАПИСАТИСЯ НА ВІЗИТ</button>
+        </div>
+
+    </main>
+
+    <div id="bookingModal" class="modal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 class="modal-title">Запишіться на прийом</h2>
+        
+        <form id="bookingForm">
+            <div class="input-group">
+                <label>Оберіть послугу:</label>
+                <select id="service" name="service" class="modal-input" required>
+                    <option value="" disabled selected>Виберіть з переліку...</option>
+                    
+                    <optgroup label="Вії">
+                        <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
+                        <option value="Фарбування вій (150 грн)">Фарбування вій — 150 грн</option>
+                    </optgroup>
+                    
+                    <optgroup label="Брови">
+                        <option value="Корекція брів (200 грн)">Корекція брів — 200 грн</option>
+                        <option value="Фарбування+корекція (400 грн)">Фарбування+корекція — 400 грн</option>
+                        <option value="Ламінування+фарбування+корекція (600грн)">Ламінування+фарбування+корекція — 600 грн</option>
+                        <option value="Депіляція над верхньою губою (200грн)">Депіляція над верхньою губою — 200 грн</option>
+                    </optgroup>
+                    
+                    <optgroup label="Комплекси">
+                        <option value="Комплекс (1000 грн)">Комплекс (Ламінування + фарбування брів та вій) — 1000 грн</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Ваше ім'я:</label>
+                <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required>
+            </div>
+
+            <div class="input-group">
+                <label>Номер телефону:</label>
+                <input type="tel" name="phone" class="modal-input" placeholder="+380..." required>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Дата:</label>
+                    <input type="date" name="date" class="modal-input" required>
+                </div>
+                <div class="input-group">
+                    <label>Час:</label>
+                    <input type="time" name="time" class="modal-input" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Коментар:</label>
+                <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Підтвердити запис</button>
+        </form>
+    </div> 
+</div> 
+
+<footer id="contacts" class="footer-section">
+    <div class="footer-content">
+        <h2 class="footer-title">Контакти</h2>
+        <p class="footer-subtitle">Чекаю на тебе у своїй затишній студії</p>
+        
+        <div class="contact-links">
+            <a href="https://instagram.com/ТВІЙ_НІК" target="_blank" class="contact-item">
+                <i class="fa-brands fa-instagram footer-icon"></i>
+                <span class="label">Instagram</span>
+            </a>
+            
+            <a href="https://t.me/ТВІЙ_НОМЕР" target="_blank" class="contact-item">
+                <i class="fa-solid fa-paper-plane footer-icon"></i>
+                <span class="label">Telegram</span>
+            </a>
+            
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot footer-icon"></i>
+                <span class="label">Київ, вул. Твоя Адреса</span>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Mtlvdn Club. Made with ❤️</p>
+        </div>
+    </div>
+</footer>
+
+<div id="success-modal" class="modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+    <div class="modal-content" style="text-align: center;">
+        <div class="modal-icon" style="font-size: 40px; margin-bottom: 15px;">✨</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
+        <button onclick="closeSuccessModal()" class="submit-btn">Гаразд</button>
+    </div>
+</div>
+
+    <script>
+        function openModal(serviceValue) {
+            const modal = document.getElementById("bookingModal");
+            const select = document.getElementById("service");
+            if (modal) {
+                if (select && serviceValue) { select.value = serviceValue; }
+                modal.style.display = "block";
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("bookingModal");
+            if (modal) { modal.style.display = "none"; }
+        }
+
+        function closeSuccessModal() {
+            const successModal = document.getElementById("success-modal");
+            if (successModal) { successModal.style.display = "none"; }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("bookingModal");
+            const successModal = document.getElementById("success-modal");
+            if (event.target == modal) { closeModal(); }
+            if (event.target == successModal) { closeSuccessModal(); }
+        }
+    </script>
+    <script src="script.js"></script> 
+</body>
+</html>

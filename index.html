@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mtlvdn Club Lashes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #f2e5df;">
+
+    <header class="hero">
+        <div class="bow bow-1"></div>
+        <div class="bow bow-2"></div>
+        <div class="bow bow-3"></div>
+        <div class="bow bow-4"></div>
+        <div class="bow bow-5"></div>
+        <div class="bow bow-6"></div>
+        <div class="bow bow-7"></div>
+        <div class="bow bow-8"></div>
+        <div class="bow bow-9"></div>
+        <div class="bow bow-10"></div>
+
+        <div class="confetti confetti-1"></div>
+        <div class="confetti confetti-2"></div>
+        <div class="confetti confetti-3"></div>
+        <div class="confetti confetti-4"></div>
+        <div class="confetti confetti-5"></div>
+
+        <a href="index.html">
+            <img src="images/logo.png" alt="Логотип" class="main-logo">
+        </a>
+
+        <div class="header-title">
+            <span class="main-text">Mtlvdn Club</span>
+            <span class="sub-text">Lashes</span>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-glass-box animate-fade">
+                <ul>
+                    <li><a href="services.html" class="menu-btn-item">Послуги</a></li>
+                    <li><a href="about.html" class="menu-btn-item">Про мене</a></li>
+                    <li><a href="#gallery" class="menu-btn-item">Фото робіт</a></li>
+                    <li><a href="#contacts" class="menu-btn-item">Контакти</a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal()" class="menu-btn-item special">Записатися</a></li>
+                </ul>
+            </div>
+        </nav>
+        <img src="images/sakura.png" alt="Sakura" class="sakura-top-right">
+    </header>
+
+    <main id="services" class="services-section">
+        <h2 class="category-title">Вії</h2>
+        
+        <div class="service-item bg-card" style="background-image: url('images/lashes1.jpg');">
+            <div class="card-content">
+                <h3 class="card-name">Ламінування + фарбування + ботокс</h3>
+                <button class="card-btn" onclick="openModal('Ламінування+фарбування+ботокс (500грн)')">ЗАПИС</button>
+            </div>
+        </div>
+
+        <div class="service-item bg-card" style="background-image: url('images/lashes2.jpg');">
+            <div class="card-content">
+                <h3 class="card-name">Фарбування вій</h3>
+                <button class="card-btn" onclick="openModal('Фарбування вій (150 грн)')">ЗАПИС</button>
+            </div>
+        </div>
+
+        <h2 class="category-title">Брови</h2>
+
+        <div class="service-item bg-card" style="background-image: url('images/brows1.jpg');">
+            <div class="card-content">
+                <h3 class="card-name">Корекція брів</h3>
+                <button class="card-btn" onclick="openModal('Корекція брів (200 грн)')">ЗАПИС</button>
+            </div>
+        </div>
+
+        <div class="service-item bg-card" style="background-image: url('images/brows2.jpg');">
+            <div class="card-content">
+                <h3 class="card-name">Фарбування + корекція</h3>
+                <button class="card-btn" onclick="openModal('Фарбування+корекція (400 грн)')">ЗАПИС</button>
+            </div>
+        </div>
+
+        <div class="service-item bg-card" style="background-image: url('images/brows3.jpg');">
+            <div class="card-content">
+                <h3 class="card-name">Ламінування + фарбування + корекція</h3>
+                <button class="card-btn" onclick="openModal('Ламінування+фарбування+корекція (600грн)')">ЗАПИС</button>
+            </div>
+        </div>
+
+        <div class="service-item bg-card" style="background-image: url('images/brows4.jpg');">
+        <div class="card-content">
+            <h3 class="card-name">Комплекс (Ламінування вій та брів)</h3>
+            <button class="card-btn" onclick="openModal('Комплекс (1000 грн)')">ЗАПИС</button>
+        </div>
+    </div>
+    </main>
+            
+    <div id="bookingModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">Запишіться на прийом</h2>
+            
+            <form id="bookingForm">
+                <div class="input-group">
+                    <label>Оберіть послугу:</label>
+                   <select id="service" name="service" class="modal-input" required>
+    <option value="" disabled selected>Виберіть з переліку...</option>
+    <optgroup label="Вії">
+        <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
+        <option value="Фарбування вій (150 грн)">Фарбування вій — 150 грн</option>
+    </optgroup>
+    <optgroup label="Брови">
+        <option value="Корекція брів (200 грн)">Корекція брів — 200 грн</option>
+        <option value="Фарбування+корекція (400 грн)">Фарбування+корекція — 400 грн</option>
+        <option value="Ламінування+фарбування+корекція (600грн)">Ламінування+фарбування+корекція — 600 грн</option>
+        <option value="Депіляція над верхньою губою (200грн)">Депіляція над верхньою губою — 200 грн</option>
+    </optgroup>
+    <optgroup label="Комплекси">
+        <option value="Комплекс (1000 грн)">Комплекс (Ламінування вій та брів) — 1000 грн</option>
+    </optgroup>
+</select>
+                </div>
+
+                <div class="input-group">
+                    <label>Ваше ім'я:</label>
+                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Номер телефону:</label>
+                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Дата:</label>
+                        <input type="date" name="date" class="modal-input" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Час:</label>
+                        <input type="time" name="time" class="modal-input" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Коментар:</label>
+                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Підтвердити запис</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+        <div class="modal-content" style="text-align: center;">
+            <div class="success-icon-wrapper">
+                <svg class="success-brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
+                    <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#a65e64"/>
+                </svg>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
+            <button onclick="closeSuccessModal()" class="submit-btn">Гаразд</button>
+        </div>
+    </div>
+
+    <footer id="contacts" class="footer-section">
+        <div class="footer-content">
+            <h2 class="footer-title">Контакти</h2>
+            <p class="footer-subtitle">Чекаю на тебе у своїй затишній студії</p>
+            
+            <div class="contact-links">
+                <a href="https://instagram.com/ТВІЙ_НІК" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-instagram footer-icon"></i>
+                    <span class="label">Instagram</span>
+                </a>
+                
+                <a href="https://t.me/ТВІЙ_НОМЕР" target="_blank" class="contact-item">
+                    <i class="fa-solid fa-paper-plane footer-icon"></i>
+                    <span class="label">Telegram</span>
+                </a>
+                
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot footer-icon"></i>
+                    <span class="label">Київ, вул. Твоя Адреса</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Mtlvdn Club. Made with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>

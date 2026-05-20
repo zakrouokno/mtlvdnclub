@@ -35,22 +35,31 @@
             <span class="sub-text">Lashes</span>
         </div>
 
-      <div class="menu-toggle" id="mobile-menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-menu').classList.toggle('active');">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</div>
+        <div class="menu-toggle" id="mobile-menu" style="z-index: 9999 !important; cursor: pointer;" 
+             onclick="
+                this.classList.toggle('active');
+                var m = document.getElementById('actual-menu');
+                if(m.style.display === 'flex') { m.style.display = 'none'; } else { m.style.display = 'flex'; }
+             ">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
 
-<nav class="nav-menu" onclick="document.getElementById('mobile-menu').classList.remove('active'); this.classList.remove('active');">
-    <div class="menu-glass-box">
-        <ul>
-            <li><a href="services.html" class="menu-btn-item">Послуги</a></li>
-            <li><a href="about.html" class="menu-btn-item">Про мене</a></li>
-            <li><a href="#contacts" class="menu-btn-item">Контакти</a></li>
-            <li><a href="javascript:void(0)" onclick="openModal()" class="menu-btn-item special">Записатися</a></li>
-        </ul>
-    </div>
-</nav>
+        <nav class="nav-menu" id="actual-menu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(242, 229, 223, 0.98); justify-content: center; align-items: center; z-index: 9998 !important;" 
+             onclick="
+                document.getElementById('mobile-menu').classList.remove('active'); 
+                this.style.display = 'none';
+             ">
+            <div class="menu-glass-box" style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(248, 179, 198, 0.5); border-radius: 35px; padding: 30px; width: 85%; max-width: 360px; box-shadow: 0 15px 35px rgba(74, 28, 31, 0.08);" onclick="event.stopPropagation();">
+                <ul style="list-style: none; padding: 0; margin: 0; width: 100%;">
+                    <li><a href="services.html" class="menu-btn-item">Послуги</a></li>
+                    <li><a href="about.html" class="menu-btn-item">Про мене</a></li>
+                    <li><a href="#contacts" class="menu-btn-item" onclick="document.getElementById('actual-menu').style.display = 'none'; document.getElementById('mobile-menu').classList.remove('active');">Контакти</a></li>
+                    <li><a href="javascript:void(0)" onclick="document.getElementById('actual-menu').style.display = 'none'; document.getElementById('mobile-menu').classList.remove('active'); openModal();" class="menu-btn-item special">Записатися</a></li>
+                </ul>
+            </div>
+        </nav>
         <img src="images/sakura.png" alt="Sakura" class="sakura-top-right">
     </header>
 
@@ -139,15 +148,14 @@
                     <input type="tel" name="phone" class="modal-input" placeholder="+380..." required>
                 </div>
 
-                <div class="row">
-                    <div class="input-group">
-                        <label>Дата:</label>
-                        <input type="date" name="date" class="modal-input" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Час:</label>
-                        <input type="time" name="time" class="modal-input" required>
-                    </div>
+                <div class="input-group">
+                    <label>Дата візиту:</label>
+                    <input type="date" name="date" class="modal-input" required style="display: block !important; width: 100% !important; box-sizing: border-box !important;">
+                </div>
+                
+                <div class="input-group">
+                    <label>Час візиту:</label>
+                    <input type="time" name="time" class="modal-input" required style="display: block !important; width: 100% !important; box-sizing: border-box !important;">
                 </div>
 
                 <div class="input-group">
@@ -204,13 +212,6 @@
 
     <script src="script.js"></script> 
 </body>
-</html>
-            <div class="footer-bottom">
-                <p>© 2026 Mtlvdn Club. Made with ❤️</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script> 
+</html>t.js"></script> 
 </body>
 </html>

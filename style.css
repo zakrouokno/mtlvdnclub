@@ -1,24 +1,85 @@
+/* ==========================================================================
+   1. БАЗОВІ СТИЛІ ТА СКИДАННЯ
+   ========================================================================== */
 body, html { 
     margin: 0 !important; 
     padding: 0 !important; 
     width: 100% !important;
-    height: 100% !important; 
     background-color: #f2e5df !important; 
     overflow-x: hidden;
     font-family: 'Playfair Display', serif;
 }
 
-/* --- 2. ЛОГОТИП --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   2. ШАПКА ТА ЛОГОТИП
+   ========================================================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .main-logo { 
     position: absolute; 
-    top: 10px; left: 20px; width: 140px; 
+    top: 15px; 
+    left: 20px; 
+    width: 110px; 
     z-index: 10;
-    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
-    animation: fadeIn 2s ease-in;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.08));
     cursor: pointer;
 }
 
-/* --- 3. БАНТИКИ (ВСЕ 10 ПОЗИЦИЙ) --- */
+.sakura-top-right {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    width: 180px; 
+    z-index: 5; 
+    pointer-events: none;
+}
+
+.header-title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 40px 10px 10px !important; 
+    margin-top: 0 !important;
+    z-index: 10;
+}
+
+.main-text { 
+    font-style: italic !important; 
+    font-weight: 600 !important; 
+    font-size: 36px !important; 
+    color: #4a1c1f !important; 
+    margin: 0 !important;
+}
+
+.sub-text { 
+    font-style: italic !important; 
+    font-weight: 600 !important; 
+    font-size: 28px !important; 
+    color: #a65e64 !important; 
+    margin-top: -2px !important; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. ДЕКОРАТИВНІ БАНТИКИ ТА КОНФЕТТІ
+   ========================================================================== */
+/* ==========================================================================
+   3. БАНТИКИ ТА КОНФЕТТІ (ПОВЕРНУЛИ ЯК БУЛО)
+   ========================================================================== */
 .bow {
     position: absolute; 
     background-image: url('images/bow.png'); 
@@ -29,21 +90,25 @@ body, html {
     width: 60px;
     height: 60px;
 }
-.bow-1 { top: 25%; left: 6%; }
-.bow-2 { top: 50%; left: 6%; }
-.bow-3 { bottom: 15%; left: 6%; }
-.bow-4 { top: 15%; right: 6%; }
-.bow-5 { top: 50%; right: 6%; }
-.bow-6 { bottom: 15%; right: 6%; }
-.bow-7 { top: 30%; left: 18%; width: 55px; height: 55px; }
-.bow-8 { top: 30%; right: 18%; width: 55px; height: 55px; }
-.bow-9 { bottom: 30%; left: 13%; width: 55px; height: 55px; }
-.bow-10 { bottom: 25%; right: 18%; width: 55px; height: 55px; }
+/* --- Точне розташування бантиків як на макеті --- */
+.bow-1 { top: 15vh; left: 3%; }
+.bow-2 { top: 45vh; left: 3%; }
+.bow-3 { top: 75vh; left: 3%; }
 
-/* Убираем только те, что мешают сакуре (если нужно) */
-.bow:nth-child(4), .bow:nth-child(8) { display: none !important; }
+.bow-4 { top: 12vh; right: 4%; }
+.bow-5 { top: 48vh; right: 3%; }
+.bow-6 { top: 78vh; right: 4%; }
 
-/* --- 4. КОНФЕТТИ --- */
+.bow-7 { top: 22vh; left: 10%; width: 55px; height: 55px; }
+.bow-8 { top: 25vh; right: 12%; width: 55px; height: 55px; }
+.bow-9 { top: 60vh; left: 8%; width: 55px; height: 55px; }
+.bow-10 { top: 65vh; right: 10%; width: 55px; height: 55px; }
+
+/* Повертаємо правило, яке приховує 4-й та 8-й, залишаючи рівно 8 бантиків */
+.bow:nth-child(4), .bow:nth-child(8) { 
+    display: none !important; 
+}
+
 .confetti {
     position: absolute;
     width: 12px; height: 12px;
@@ -60,388 +125,214 @@ body, html {
     0%, 100% { transform: translateY(0) translateX(0); }
     50% { transform: translateY(-50px) translateX(30px); }
 }
-
-/* Поднимаем главный заголовок выше */
-.header-title {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    /* Уменьшаем верхний отступ со 120px до 40px */
-    padding: 40px 10px 20px !important; 
-    margin-top: 0 !important;
-    z-index: 10;
-}
-
-/* Если у тебя есть основной контейнер, убираем у него лишние пустые места */
-.main-text { 
-    font-style: italic !important; 
-    font-weight: 600 !important; 
-    font-size: 38px !important; 
-    color: #8B0000 !important; 
-    margin: 0 !important; /* Убираем лишние отступы у самих букв */
-}
-
-.sub-text { 
-    font-style: italic !important; 
-    font-weight: 600 !important; 
-    font-size: 32px !important; 
-    color: #8B0000 !important; 
-    margin-top: -5px !important; 
-}
-
-/* --- 6. МЕНЮ И КНОПКИ --- */
+/* ==========================================================================
+   4. МОБІЛЬНЕ МЕНЮ ТА КНОПКА-БУРГЕР
+   ========================================================================== */
 .menu-toggle { 
-    cursor: pointer; position: absolute; top: 20px; right: 20px; 
-    z-index: 3000; background: #e5c5bb; padding: 10px; border-radius: 5px; 
+    cursor: pointer; 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 3000; 
+    background: #e5c5bb; 
+    padding: 10px 12px; 
+    border-radius: 8px; 
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: all 0.3s ease;
 }
-.menu-toggle span { display: block; width: 30px; height: 3px; background: #a65e64; margin: 6px 0; }
+.menu-toggle .bar { 
+    display: block; 
+    width: 25px; 
+    height: 3px; 
+    background: #4a1c1f; 
+    transition: all 0.3s ease;
+}
+
+/* Анімація перетворення бургера в хрестик */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 .nav-menu {
-    display: none; position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%; background: rgba(242, 229, 223, 0.9);
-    justify-content: center; align-items: center; z-index: 2500;
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: rgba(242, 229, 223, 0.98);
+    justify-content: center; 
+    align-items: center; 
+    z-index: 2500;
 }
-.nav-menu.active { display: flex; }
-.nav-menu ul { list-style: none; padding: 0; }
-.nav-menu ul li a {
-    text-decoration: none; color: #000; background: #fff;
-    padding: 15px 30px; display: block; margin: 10px;
-    border-radius: 50px; border: 2px solid #f8b3c6; font-weight: bold;
+.nav-menu.active { 
+    display: flex !important; 
 }
 
-/* --- 7. НОВЫЕ УСЛУГИ ПО РИСУНКУ --- */
-.services-section {
+.menu-glass-box {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(248, 179, 198, 0.5) !important;
+    border-radius: 35px !important;
+    padding: 30px !important;
+    width: 85% !important;
+    max-width: 360px !important;
+    box-shadow: 0 15px 35px rgba(74, 28, 31, 0.08) !important;
+}
+
+.nav-menu ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
     width: 100%;
-    max-width: 450px; /* Узко, чтобы быть МЕЖДУ бантиков */
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    z-index: 100;
 }
 
-.category-title {
-    font-family: 'Playfair Display', serif;
-    font-style: italic; font-size: 42px;
-    color: #8B0000; text-align: center; margin: 40px 0 20px;
-}
-
-.service-item {
-    background: rgba(255, 255, 255, 0.6); 
-    border: 1px solid #f8b3c6;
-    border-radius: 15px;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.service-info h3 { font-size: 17px; margin: 0; font-weight: 400; }
-.service-price { font-weight: bold; color: #a65e64; }
-
-/* Кнопка записи снизу */
-.bottom-action { text-align: center; margin-top: 40px; padding-bottom: 60px; }
-.main-booking-btn {
-    background: #fff; border: 2px solid #f8b3c6;
-    color: #a65e64; padding: 15px 60px; border-radius: 40px;
-    font-size: 22px; cursor: pointer; font-family: 'Playfair Display', serif;
-}
-
-/* --- 8. САКУРА И МОДАЛКИ --- */
-.sakura-top-right {
-    position: fixed; top: 0; right: 0; width: 201px; z-index: 5; pointer-events: none;
-}
-
-.modal, .modal-overlay { 
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.4); z-index: 5000; 
-}
-.modal-content {
-    background: #f2e5df; position: absolute; top: 50%; left: 50%; 
-    transform: translate(-50%, -50%); padding: 25px; border-radius: 20px;
-    border: 2px solid #f8b3c6; width: 300px; text-align: center;
-}
-.modal-content input, .modal-content select, .modal-content textarea {
-    width: 90%; margin: 8px 0; padding: 10px; border-radius: 10px; border: 1px solid #a65e64;
-}
-.service-item.item-with-bg {
-    /* 1. Делаем узкое окошко */
-    width: 90%;          /* Ширина на телефоне (почти на весь экран) */
-    max-width: 600px;    /* Максимальная ширина на компе (узкая колонка) */
-    
-    /* 2. Ставим по центру и добавляем отступы */
-    margin: 20px auto;   /* Отступ сверху/снизу 20px, auto - центровка по горизонтали */
-    
-    /* 3. Остальные настройки фото и стиля */
-    height: 300px;       /* Высота окошка (на твой вкус) */
-    border-radius: 20px; /* Скругленные углы */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: flex-end; /* Текст внизу */
-    overflow: hidden;
-    border: 1px solid #f8b3c6;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Немного объема */
-}
-
-/* Градиент внизу карточки, чтобы текст читался */
-.service-item.item-with-bg::after {
-    content: "";
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 40%;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    z-index: 1;
-}
-
-/* Текст внутри фото */
-.service-content-bottom {
-    width: 100%;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2;
-    color: #ffffff;
+.menu-btn-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 50px !important;
+    background: #ffffff !important;
+    color: #4a1c1f !important;
+    text-decoration: none !important;
+    margin-bottom: 15px !important;
+    border-radius: 50px !important;
+    border: 1px solid #f8b3c6 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
     box-sizing: border-box;
 }
 
-.service-name {
-    font-size: 20px;
-    font-weight: 600;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+.menu-btn-item:hover {
+    letter-spacing: 2px !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(248, 179, 198, 0.4) !important;
+    border-color: #a65e64 !important;
+    transform: scale(1.02);
 }
 
-.service-price {
-    font-weight: bold;
-    font-size: 18px;
-    background: rgba(255, 255, 255, 0.2); /* Плашка для цены */
-    padding: 5px 12px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px); /* Матовое стекло */
+.menu-btn-item.special {
+    background: linear-gradient(135deg, #a65e64, #c28287) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 600 !important;
+    box-shadow: 0 8px 15px rgba(166, 94, 100, 0.2) !important;
+    margin-bottom: 0 !important;
 }
-/* Центрируем всю секцию услуг */
+
+/* ==========================================================================
+   5. СЕКЦІЯ СТОРІНКИ ПОСЛУГ (КАРТКИ З ФОТО)
+   ========================================================================== */
 .services-section {
-    width: 95%;
-    max-width: 450px; /* Узкая колонка, как на листке */
-    margin: 40px auto;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+    padding: 10px 20px 60px 20px !important;
+    box-sizing: border-box;
     position: relative;
-    z-index: 100;
+    z-index: 10;
 }
 
-/* Красивые заголовки Вії и Брови */
 .category-title {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 36px;
-    color: #8B0000;
+    color: #4a1c1f;
     text-align: center;
-    margin: 30px 0 15px;
+    margin: 35px 0 20px 0;
 }
 
-
-
-/* Общая кнопка Запись */
-.main-booking-btn {
-    display: block;
-    margin: 30px auto;
-    background: #fff;
-    border: 2px solid #f8b3c6;
-    color: #a65e64;
-    padding: 15px 60px;
-    border-radius: 35px;
-    font-size: 22px;
-    cursor: pointer;
-    font-family: 'Playfair Display', serif;
-}
-/* --- НОВЫЙ СТИЛЬ ОКОШЕК ПО РИСУНКУ --- */
-
-/* Контейнер */
-/* Контейнер карточек */
-.services-section {
-    width: 100% !important;
-    max-width: 600px !important;
-    margin: 0 auto !important;
-    padding: 20px !important;
-}
-
-/* Уменьшенная карточка (минус 25% от предыдущей) */
 .service-item.bg-card {
-    height: 330px !important; /* Было 450px, стало 330px */
-    width: 90% !important;
-    max-width: 380px !important; /* Ужали по ширине */
+    height: 300px !important;
+    width: 100% !important;
     margin: 0 auto 25px auto !important;
-    border: 3px solid #f8b3c6 !important;
-    border-radius: 30px !important; /* Чуть меньше скругление для баланса */
+    border: 2px solid #f8b3c6 !important;
+    border-radius: 24px !important;
     background-size: cover !important;
     background-position: center !important;
     position: relative !important;
     overflow: hidden !important;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    box-sizing: border-box;
 }
 
-/* Контейнер внутри фото */
+/* Затемнення фото по всьому блоку, сильніше вгорі для читання тексту */
+.service-item.bg-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+}
+
 .card-content {
     width: 100% !important;
     height: 100% !important;
-    background: transparent !important;
+    position: relative;
+    z-index: 2;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    /* Убираем центровку по вертикали, чтобы кнопка могла уйти вниз */
     justify-content: flex-start !important; 
-    padding: 30px 15px 25px 15px !important; /* Больше отступ сверху, меньше снизу */
+    padding: 25px 15px 20px 15px !important; 
     box-sizing: border-box !important;
 }
 
-/* Обновленный заголовок услуги */
 .card-name {
     color: #ffffff !important;
-    /* Поменяли шрифт на более современный и красивый */
     font-family: 'Montserrat', sans-serif !important;
-    /* Уменьшили размер */
-    font-size: 18px !important; 
-    font-weight: 300 !important; /* Тонкое начертание */
+    font-size: 16px !important; 
+    font-weight: 500 !important; 
     text-transform: uppercase !important;
-    letter-spacing: 2px !important; /* Добавили расстояние между буквами */
-    
-    margin-top: 30px !important;
-    margin-bottom: 10px !important;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.7) !important;
-    max-width: 85% !important;
+    letter-spacing: 1.5px !important;
+    text-align: center;
+    margin: 0 0 10px 0 !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8) !important;
+    max-width: 90% !important;
     line-height: 1.4 !important;
 }
 
-/* Кнопка ЗАПИСЬ (тоже сделаем шрифт аккуратнее) */
 .card-btn {
     margin-top: auto !important;
     background: #a65e64 !important;
     border: 1px solid #f8b3c6 !important;
     color: white !important;
-    padding: 8px 30px !important; /* Чуть уменьшили кнопку */
-    border-radius: 10px !important;
-    
+    padding: 10px 35px !important; 
+    border-radius: 12px !important;
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
+    letter-spacing: 1px;
     cursor: pointer !important;
+    transition: all 0.3s ease;
 }
-/* Стилі для випадаючого списку в модалці */
-.modal-input {
-    width: 100% !important;
-    padding: 12px !important;
-    margin: 10px 0 20px 0 !important;
-    border: 1px solid #f8b3c6 !important;
-    border-radius: 10px !important;
-    background-color: #fff !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 14px !important;
-    box-sizing: border-box !important;
-    display: block !important;
-}
-
-/* Заголовки груп (Вії / Брови) всередині списку */
-optgroup {
-    font-weight: bold;
-    color: #a65e64;
-    font-style: normal;
-}
-/* Стиль модального вікна */
-.modal-content {
-    background-color: #f2e5df !important; /* Твій бежевий фон */
-    margin: 5% auto !important;
-    padding: 30px !important;
-    border-radius: 30px !important;
-    width: 90% !important;
-    max-width: 450px !important;
-    border: 2px solid #f8b3c6 !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-}
-
-.modal-title {
-    font-family: 'Playfair Display', serif !important;
-    color: #4a1c1f !important;
-    text-align: center !important;
-    font-size: 28px !important;
-    margin-bottom: 25px !important;
-}
-
-.input-group {
-    margin-bottom: 15px !important;
-    text-align: center !important;
-}
-
-.input-group label {
-    display: block !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 14px !important;
-    color: #4a1c1f !important;
-    margin-bottom: 5px !important;
-}
-
-/* Стиль полів вводу */
-.modal-input {
-    width: 100% !important;
-    padding: 12px 15px !important;
-    border: 1.5px solid #f8b3c6 !important; /* Рожева обводка */
-    border-radius: 15px !important;
-    background: #ffffff !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 14px !important;
-    box-sizing: border-box !important;
-    outline: none !important;
-    transition: 0.3s !important;
-}
-
-.modal-input:focus {
-    border-color: #a65e64 !important;
-    box-shadow: 0 0 8px rgba(248, 179, 198, 0.5) !important;
-}
-
-/* Дата і час в рядку */
-.row {
-    display: flex !important;
-    gap: 15px !important;
-}
-.row .input-group {
-    flex: 1 !important;
-}
-
-/* Кнопка */
-.submit-btn {
-    background: #a65e64 !important;
-    color: white !important;
-    border: none !important;
-    padding: 15px 0 !important;
-    width: 100% !important;
-    border-radius: 15px !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
-    margin-top: 10px !important;
-    transition: 0.3s !important;
-}
-
-.submit-btn:hover {
+.card-btn:hover {
     background: #8e4d52 !important;
-    transform: translateY(-2px) !important;
+    transform: translateY(-2px);
 }
 
-/* Адаптація textarea */
-textarea.modal-input {
-    resize: none !important;
-}
-/* Контейнер з відступами */
+/* ==========================================================================
+   6. ТЕКСТОВИЙ ПРАЙС-ЛИСТ (`services.html`)
+   ========================================================================== */
 .services-container {
-    padding: 60px 25px 120px !important;
-    max-width: 600px !important;
+    padding: 30px 20px 100px !important;
+    max-width: 550px !important;
     margin: 0 auto !important;
+    box-sizing: border-box;
 }
 
 .back-link {
@@ -451,247 +342,238 @@ textarea.modal-input {
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 2px;
+    font-weight: 500;
 }
 
-/* Список послуг */
 .price-list {
-    margin-bottom: 40px !important;
+    margin-bottom: 35px !important;
 }
 
 .price-item {
     display: flex !important;
     align-items: baseline !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 18px !important;
     font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer;
 }
 
 .price-item .name {
-    font-size: 15px !important;
+    font-size: 14px !important;
     color: #4a1c1f !important;
     font-weight: 400 !important;
-    flex-shrink: 0;
-}
-
-.price-item .dots {
-    flex-grow: 1 !important;
-    border-bottom: 1px dotted #f8b3c6 !important;
-    margin: 0 10px !important;
+    max-width: 75%;
 }
 
 .price-item .price {
     font-weight: 600 !important;
     color: #a65e64 !important;
     white-space: nowrap;
+    margin-left: auto; 
+    padding-left: 10px;
 }
 
-/* Одна красива кнопка внизу */
-.sticky-footer {
-    position: fixed !important;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 20px !important;
-    background: linear-gradient(to top, #f2e5df 70%, transparent) !important;
-    display: flex;
+/* ==========================================================================
+   7. МОДАНІ ВІКНА ТА ФОРМА ЗАПИСУ
+   ========================================================================== */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    z-index: 5000; 
+    align-items: center;
     justify-content: center;
-    z-index: 100;
 }
 
-.mega-booking-btn {
-    background: #a65e64 !important;
-    color: #ffffff !important;
-    border: none !important;
-    padding: 20px 40px !important;
-    border-radius: 50px !important;
+.modal-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(40, 20, 22, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: #f2e5df !important; 
+    position: relative;
+    z-index: 5002;
+    padding: 25px !important;
+    border-radius: 24px !important;
+    width: 88% !important;
+    max-width: 400px !important;
+    border: 2px solid #f8b3c6 !important;
+    box-shadow: 0 15px 35px rgba(74, 28, 31, 0.15) !important;
+    box-sizing: border-box;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 26px;
+    color: #a65e64;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-family: 'Playfair Display', serif !important;
+    color: #4a1c1f !important;
+    text-align: center !important;
+    font-size: 24px !important;
+    margin: 0 0 20px 0 !important;
+}
+
+.input-group {
+    margin-bottom: 12px !important;
+    text-align: left !important;
+}
+
+.input-group label {
+    display: block !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    color: #4a1c1f !important;
+    margin-bottom: 4px !important;
+    padding-left: 4px;
+}
+
+.modal-input {
+    width: 100% !important;
+    padding: 11px 14px !important;
+    border: 1.5px solid #f8b3c6 !important; 
+    border-radius: 12px !important;
+    background: #ffffff !important;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 14px !important;
-    font-weight: 600 !important;
-    letter-spacing: 3px !important;
-    cursor: pointer !important;
-    box-shadow: 0 10px 25px rgba(166, 94, 100, 0.4) !important;
-    transition: 0.4s !important;
-    width: 90%;
-    max-width: 400px;
+    box-sizing: border-box !important;
+    outline: none !important;
 }
-
-.mega-booking-btn:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 15px 30px rgba(166, 94, 100, 0.6) !important;
-    letter-spacing: 4px !important;
-}
-/* Контейнер тепер трохи ширший, щоб кнопки виглядали солідніше */
-.menu-glass-box {
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-    border: 1px solid rgba(248, 179, 198, 0.4) !important;
-    border-radius: 40px !important;
-    padding: 40px 30px !important;
-    width: 90% !important;
-    max-width: 400px !important; /* Трохи розширили */
-    margin: 20px auto !important;
-    box-shadow: 0 20px 50px rgba(74, 28, 31, 0.1) !important;
-}
-
-/* Новий стиль кнопок */
-.menu-btn-item {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: 55px !important; /* Робимо їх вищими */
-    background: rgba(255, 255, 255, 0.8) !important;
-    color: #4a1c1f !important;
-    text-decoration: none !important;
-    margin-bottom: 18px !important; /* Більше відступу між ними */
-    border-radius: 50px !important;
-    border: 1px solid #f8b3c6 !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-    letter-spacing: 1.5px !important;
-    text-transform: uppercase !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-}
-
-/* Ефект при наведенні - кнопка стає яскравішою і трохи збільшується */
-.menu-btn-item:hover {
-    transform: scale(1.03) !important;
-    background: #ffffff !important;
-    box-shadow: 0 8px 25px rgba(248, 179, 198, 0.5) !important;
+.modal-input:focus {
     border-color: #a65e64 !important;
 }
 
-/* Кнопка "Записатися" - виділяємо її м'яким градієнтом */
-.menu-btn-item.special {
-    background: linear-gradient(135deg, #a65e64, #c28287) !important;
-    color: #ffffff !important;
+/* Рядок дати і часу */
+.row {
+    display: flex !important;
+    gap: 12px !important;
+}
+.row .input-group {
+    flex: 1 !important;
+}
+
+.submit-btn {
+    background: #a65e64 !important;
+    color: white !important;
     border: none !important;
-    font-weight: 600 !important;
-    box-shadow: 0 10px 20px rgba(166, 94, 100, 0.3) !important;
-    margin-bottom: 0 !important; /* У останньої кнопки немає відступу знизу */
+    padding: 13px 0 !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    margin-top: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.submit-btn:hover {
+    background: #8e4d52 !important;
 }
 
-.menu-btn-item.special:hover {
-    box-shadow: 0 15px 30px rgba(166, 94, 100, 0.5) !important;
-    background: linear-gradient(135deg, #8e4d52, #a65e64) !important;
-}
+textarea.modal-input { resize: none !important; }
+
+/* ==========================================================================
+   8. СТОРІНКА ПРО МЕНЕ (`about.html`)
+   ========================================================================== */
 .about-container {
-    max-width: 900px !important; /* Робимо сам контейнер ширшим, щоб фото помістилося */
+    max-width: 500px !important; 
     margin: 0 auto !important;
-    padding: 40px 25px 100px !important;
-    text-align: center !important;
+    padding: 30px 20px 60px !important;
+    box-sizing: border-box;
 }
 
-/* Контейнер для фото — делаем его очень широким и масштабным */
 .about-photo-wrapper {
     position: relative !important;
-    width: 100% !important;
-    max-width: 700px !important; /* Вот тут выставили крутую большую ширину */
-    height: 480px !important;    /* Высота, чтобы пропорции смотрелись идеально */
-    margin: 40px auto 60px !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    width: 240px !important; 
+    height: 320px !important;
+    margin: 30px auto 35px auto !important;
 }
 
-/* Сама фотография без рамок, растянутая по всей ширине */
 .about-img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Фото заполнит всё пространство без искажений */
-    border: none !important;
-    border-radius: 12px !important; /* Чуть мягче скруглили углы для большого формата */
-    box-shadow: 0 15px 40px rgba(74, 28, 31, 0.12) !important; /* Мягкая премиальная тень */
+    object-fit: cover !important; 
+    border-radius: 20px !important; 
+    box-shadow: 0 10px 25px rgba(74, 28, 31, 0.1) !important; 
     display: block;
-}
-
-/* Рамочка, що виглядає з-під фото */
-.photo-frame {
-    position: absolute !important;
-    top: 20px; /* Зміщення */
-    left: 20px; /* Зміщення */
-    width: 100%;
-    height: 100%;
-    border: 1.5px solid #a65e64 !important;
-    /* Кути мають співпадати з фото */
-    border-radius: 15px !important; 
-    z-index: 1;
-}
-
-/* Трохи підправимо контейнер для фото, щоб він був пропорційним */
-.about-photo-wrapper {
-    position: relative !important;
-    width: 280px !important; /* Трохи розширимо */
-    height: 380px !important;
-    margin: 40px auto 60px !important; /* Додали відступ знизу до тексту */
 }
 
 .about-title {
     font-family: 'Playfair Display', serif !important;
-    font-size: 32px !important;
+    font-size: 28px !important;
     color: #4a1c1f !important;
-    margin-bottom: 25px !important;
+    margin-bottom: 15px !important;
+    text-align: center;
 }
 
 .about-text {
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 16px !important;
-    line-height: 1.8 !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
     color: #5a3e3f !important;
-    margin-bottom: 20px !important;
-    font-weight: 300 !important;
+    margin-bottom: 15px !important;
+    font-weight: 400 !important;
 }
 
-.about-stats {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 40px !important;
-    margin: 40px 0 !important;
+.about-content .mega-booking-btn {
+    display: block;
+    margin: 25px auto 0 auto;
+    text-align: center;
+    text-decoration: none;
+    background: #a65e64;
+    color: white;
+    padding: 14px 0;
+    width: 100%;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.stat-num {
-    display: block !important;
-    font-family: 'Playfair Display', serif !important;
-    font-size: 28px !important;
-    color: #a65e64 !important;
-}
-
-.stat-desc {
-    font-size: 12px !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    color: #8e7676 !important;
-}
+/* ==========================================================================
+   9. ПІДВАЛ (ФУТЕР) СТОРІНКИ
+   ========================================================================== */
 .footer-section {
-    padding: 80px 20px 40px !important;
-    background-color: #f2e5df !important; /* Твій основний фон */
-    border-top: 1px solid rgba(166, 94, 100, 0.2) !important;
+    padding: 50px 20px 30px !important;
+    background-color: #f2e5df !important; 
+    border-top: 1px solid rgba(166, 94, 100, 0.15) !important;
     text-align: center !important;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-title {
     font-family: 'Playfair Display', serif !important;
-    font-size: 32px !important;
+    font-size: 28px !important;
     color: #4a1c1f !important;
-    margin-bottom: 10px !important;
+    margin: 0 0 5px 0 !important;
 }
 
 .footer-subtitle {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 300 !important;
     color: #a65e64 !important;
-    margin-bottom: 40px !important;
-    letter-spacing: 1px !important;
+    margin: 0 0 30px 0 !important;
+    font-size: 14px;
 }
 
 .contact-links {
     display: flex !important;
-    flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 30px !important;
-    margin-bottom: 50px !important;
+    gap: 40px !important;
+    margin-bottom: 35px !important;
 }
 
 .contact-item {
@@ -699,21 +581,18 @@ textarea.modal-input {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 10px !important;
-    transition: transform 0.3s ease !important;
+    gap: 6px !important;
 }
 
-.contact-item:hover {
-    transform: translateY(-5px) !important;
-}
-
-.contact-item .icon {
-    font-size: 24px !important;
+.footer-icon {
+    font-size: 26px !important; 
+    color: #a65e64 !important;  
+    transition: all 0.3s ease !important;
 }
 
 .contact-item .label {
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 13px !important;
+    font-size: 11px !important;
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
     color: #4a1c1f !important;
@@ -722,76 +601,64 @@ textarea.modal-input {
 .footer-bottom {
     font-family: 'Montserrat', sans-serif !important;
     font-size: 11px !important;
-    color: rgba(74, 28, 31, 0.5) !important;
-    margin-top: 30px !important;
-    border-top: 1px solid rgba(166, 94, 100, 0.1) !important;
-    padding-top: 20px !important;
-}
-.footer-icon {
-    font-size: 28px !important; /* Трохи більші за емодзі */
-    color: #a65e64 !important;  /* Твій фірмовий колір */
-    margin-bottom: 5px !important;
-    transition: all 0.3s ease !important;
-}
-
-/* Колір при наведенні */
-.contact-item:hover .footer-icon {
-    color: #4a1c1f !important; /* Стає темнішим */
-    transform: scale(1.1) !important;
-}
-
-/* Прибираємо зайві емодзі з футера внизу */
-.footer-bottom p {
     color: rgba(74, 28, 31, 0.4) !important;
-}
-/* Плавний скрол до якорів (наприклад, до Контактів) */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Опис анімації появи */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin-top: 20px !important;
+    border-top: 1px solid rgba(166, 94, 100, 0.08) !important;
+    padding-top: 15px !important;
 }
 
-/* Клас для анімації (додамо його до основних блоків) */
+/* ==========================================================================
+   10. АНІМАЦІЇ ТА ДОДАТКОВІ КЛАСИ
+   ========================================================================== */
 .animate-fade {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Ховер-ефект для всіх кнопок (щоб вони плавно збільшувалися) */
-.menu-btn-item, .mega-booking-btn, .submit-btn, .contact-item {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-.menu-btn-item:hover {
-    letter-spacing: 2px !important; /* Текст трохи розсувається */
-    background: #ffffff !important;
-    box-shadow: 0 10px 20px rgba(166, 94, 100, 0.2) !important;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.mega-booking-btn:hover {
-    transform: scale(1.02) translateY(-3px) !important;
-    filter: brightness(1.1);
-}
-/* Стильний контейнер для нової іконки */
 .success-icon-wrapper {
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important;
     display: inline-block;
-    /* Ефект легкої анімації при відкритті */
-    animation: iconPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Фарбуємо іконку у твій фірмовий колір */
-.success-brand-icon {
-    font-size: 45px !important;
-    color: #a65e64 !important; /* Твій фірмовий відтінок */
+/* ==========================================================================
+   11. АДАПТИВНИЙ КРАШ-ТЕСТ ДЛЯ ТЕЛЕФОНІВ (Мобільні екрани)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .sakura-top-right {
+        width: 120px !important; /* Зменшуємо гілку сакури, щоб не перекривала екран */
+    }
+    
+    .main-logo {
+        width: 90px !important; /* Більш компактне лого */
+        left: 15px !important;
+        top: 15px !important;
+    }
+    
+    .main-text { font-size: 30px !important; }
+    .sub-text { font-size: 22px !important; }
+    
+    /* Сховуємо бантики, які заважають читати контент на вузькому екрані */
+    .bow-1, .bow-4, .bow-7, .bow-8 {
+        display: none !important;
+    }
+    
+    .row {
+        flex-direction: column !important; /* Дата і час встають один під одного */
+        gap: 0 !important;
+    }
+    
+    .service-item.bg-card {
+        height: 240px !important; /* Оптимальна висота картки на телефоні */
+    }
+    
+    .card-name {
+        font-size: 14px !important; /* Акуратний шрифт назви послуги */
+    }
+}вій фірмовий відтінок */
     text-shadow: 0 4px 10px rgba(166, 94, 100, 0.2) !important;
 }
 

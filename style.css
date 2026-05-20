@@ -75,48 +75,42 @@ html {
 }
 
 /* ==========================================================================
-   3. ДЕКОРАТИВНІ БАНТИКИ ТА КОНФЕТТІ
-   ========================================================================== */
-/* ==========================================================================
-   3. БАНТИКИ ТА КОНФЕТТІ (РОЗКИДАНІ ПО ВСІЙ ДОВЖИНІ СТОРІНКИ)
-   ========================================================================== */
-/* ==========================================================================
-   3. БАНТИКИ ТА КОНФЕТІ (СТАТИЧНІ НА ЕКРАНІ, САЙТ С КРОЛИТЬСЯ ПІД НИМИ)
+   3. БАНТИКИ ТА КОНФЕТТІ (ГОЛОВНИЙ СТИЛЬ ДЛЯ ПК — СТАТИЧНІ НА ЕКРАНІ)
    ========================================================================== */
 .bow {
-    position: fixed; /* Намертво приклеює бантики до екрана */
+    position: fixed; 
     background-image: url('images/bow.png'); 
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 5; /* Вони літають над фоном, але під модалкою */
+    z-index: 5; 
     opacity: 0.9;
     width: 60px;
     height: 60px;
-    pointer-events: none; /* Щоб крізь них можна було натискати на кнопки */
+    pointer-events: none; 
 }
 
-/* Розставляємо 8 бантиків по всій висоті екрана телефона/комп'ютера */
-.bow-1 { top: 12vh; left: 4%; }   /* Вгорі зліва */
-.bow-2 { top: 48vh; left: 3%; }   /* По центру зліва */
-.bow-3 { top: 82vh; left: 5%; }   /* Внизу зліва */
+/* Розставляємо бантики по всій висоті екрана комп'ютера */
+.bow-1 { top: 12vh; left: 4%; }   
+.bow-2 { top: 48vh; left: 3%; }   
+.bow-3 { top: 82vh; left: 5%; }   
 
 .bow-4 { top: 15vh; right: 4%; }  
-.bow-5 { top: 52vh; right: 3%; }  /* По центру справа */
-.bow-6 { top: 85vh; right: 5%; }  /* Внизу справа */
+.bow-5 { top: 52vh; right: 3%; }  
+.bow-6 { top: 85vh; right: 5%; }  
 
-.bow-7 { top: 28vh; left: 11%; width: 52px; height: 52px; } /* Трохи зміщений маленький */
+.bow-7 { top: 28vh; left: 11%; width: 52px; height: 52px; } 
 .bow-8 { top: 32vh; right: 13%; width: 52px; height: 52px; }
 .bow-9 { top: 65vh; left: 9%; width: 52px; height: 52px; }
 .bow-10 { top: 70vh; right: 11%; width: 52px; height: 52px; }
 
-/* Ховаємо 4-й та 8-й, залишаючи рівно 8 бантиків на екрані */
+/* Ховаємо 4-й та 8-й, залишаючи рівно 8 бантиків на екрані ПК */
 .bow:nth-child(4), .bow:nth-child(8) { 
     display: none !important; 
 }
 
 /* Статичне конфеті, яке теж не зникає при гортанні */
 .confetti {
-    position: fixed; /* Тепер конфеті теж зафіксоване */
+    position: fixed; 
     width: 12px; 
     height: 12px;
     background-color: #f8b3c6;
@@ -133,6 +127,7 @@ html {
     0%, 100% { transform: translateY(0) translateX(0); }
     50% { transform: translateY(-40px) translateX(25px); }
 }
+
 /* ==========================================================================
    4. МОБІЛЬНЕ МЕНЮ ТА КНОПКА-БУРГЕР
    ========================================================================== */
@@ -176,10 +171,10 @@ html {
     left: 0;
     width: 100%; 
     height: 100%; 
-    background: rgba(242, 229, 223, 0.98) !important; /* Твій бежевий фон */
+    background: rgba(242, 229, 223, 0.98) !important; 
     justify-content: center; 
     align-items: center; 
-    z-index: 2500 !important; /* Важливо! Цей екрану має бути вищим за бантики та картки */
+    z-index: 4000 !important; 
 }
 
 .nav-menu.active { 
@@ -278,7 +273,6 @@ html {
     box-sizing: border-box;
 }
 
-/* Затемнення фото по всьому блоку, сильніше вгорі для читання тексту */
 .service-item.bg-card::before {
     content: "";
     position: absolute;
@@ -461,7 +455,6 @@ html {
     border-color: #a65e64 !important;
 }
 
-/* Рядок дати і часу */
 .row {
     display: flex !important;
     gap: 12px !important;
@@ -638,13 +631,11 @@ textarea.modal-input { resize: none !important; }
    ========================================================================== */
 @media screen and (max-width: 768px) {
     .sakura-top-right {
-        width: 120px !important; /* Зменшуємо гілку сакури, щоб не перекривала екран */
+        width: 120px !important; 
     }
-    .bow, .confetti {
-    display: none !important;
-}
+    
     .main-logo {
-        width: 90px !important; /* Більш компактне лого */
+        width: 90px !important; 
         left: 15px !important;
         top: 15px !important;
     }
@@ -652,15 +643,98 @@ textarea.modal-input { resize: none !important; }
     .main-text { font-size: 30px !important; }
     .sub-text { font-size: 22px !important; }
     
-    /* Сховуємо бантики, які заважають читати контент на вузькому екрані */
-    .bow-1, .bow-4, .bow-7, .bow-8 {
-        display: none !important;
+    .service-item.bg-card {
+        height: 240px !important; 
     }
     
-    .row {
-        flex-direction: column !important; /* Дата і час встають один під одного */
-        gap: 0 !important;
+    .card-name {
+        font-size: 14px !important; 
     }
+
+    /* ----------------------------------------------------------------------
+       НАЛАШТУВАННЯ БАНТИКІВ ТА КОНФЕТТІ СТРОГО ДЛЯ ТЕЛЕФОНІВ
+       ---------------------------------------------------------------------- */
+    .bow {
+        position: absolute !important; /* На телефонах вони плавно гортаються */
+        width: 38px !important;        /* Зменшені акуратні розміри */
+        height: 38px !important;
+        z-index: 1 !important;         /* Під текстом та картками */
+    }
+
+    /* Рівні відступи для екрана смартфона */
+    .bow-1 { top: 190px !important; left: 1% !important; }
+    .bow-2 { top: 520px !important; left: 1% !important; }
+    .bow-3 { top: 900px !important; left: 2% !important; }
+
+    .bow-4 { top: 230px !important; right: 1% !important; }
+    .bow-5 { top: 620px !important; right: 1% !important; }
+    .bow-6 { top: 1050px !important; right: 2% !important; }
+
+    /* Приховуємо внутрішні, щоб не забивати маленький дисплей */
+    .bow-7, .bow-8, .bow-9, .bow-10 {
+        display: none !important;
+    }
+
+    .confetti {
+        position: absolute !important;
+        z-index: 1 !important;
+    }
+
+    /* ----------------------------------------------------------------------
+       ОНОВЛЕНА ОХАЙНА МОДАЛКА ДЛЯ СМАРТФОНІВ
+       ---------------------------------------------------------------------- */
+    .modal-content {
+        width: 86% !important;        
+        max-width: 340px !important;   
+        padding: 16px 20px !important; 
+        border-radius: 20px !important;
+    }
+
+    .modal-title {
+        font-size: 20px !important;    
+        margin-bottom: 12px !important;
+    }
+
+    .close-modal {
+        top: 8px !important;
+        right: 14px !important;
+        font-size: 22px !important;    
+    }
+
+    .input-group {
+        margin-bottom: 8px !important; 
+    }
+
+    .input-group label {
+        font-size: 11px !important;    
+        margin-bottom: 2px !important;
+    }
+
+    .modal-input {
+        padding: 8px 12px !important;  
+        font-size: 13px !important;    
+        border-radius: 10px !important;
+        height: auto !important;
+    }
+
+    /* Дата і час: вирівнюємо акуратно в один рядок */
+    .row {
+        display: flex !important;
+        flex-direction: row !important; 
+        gap: 10px !important;
+    }
+    
+    .row .input-group {
+        margin-bottom: 8px !important;
+    }
+
+    .submit-btn {
+        padding: 10px 0 !important;    
+        font-size: 13px !important;    
+        border-radius: 10px !important;
+        margin-top: 5px !important;
+    }
+}
     
     .service-item.bg-card {
         height: 240px !important; /* Оптимальна висота картки на телефоні */

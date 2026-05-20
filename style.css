@@ -640,7 +640,9 @@ textarea.modal-input { resize: none !important; }
     .sakura-top-right {
         width: 120px !important; /* Зменшуємо гілку сакури, щоб не перекривала екран */
     }
-    
+    .bow, .confetti {
+    display: none !important;
+}
     .main-logo {
         width: 90px !important; /* Більш компактне лого */
         left: 15px !important;

@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <div id="bookingModal" class="modal" style="display: none;">
+    <div id="bookingModal" class="modal">
         <div class="modal-overlay" onclick="closeModal()"></div>
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -40,24 +40,21 @@
                 <div class="input-group">
                     <label>Оберіть послугу:</label>
                     <select id="service" name="service" class="modal-input" required>
-    <option value="" disabled selected>Виберіть з переліку...</option>
-    
-    <optgroup label="Вії">
-        <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
-        <option value="Фарбування вій (150 грн)">Фарбування вій — 150 грн</option>
-    </optgroup>
-    
-    <optgroup label="Брови">
-        <option value="Корекція брів (200 грн)">Корекція брів — 200 грн</option>
-        <option value="Фарбування+корекція (400 грн)">Фарбування+корекція — 400 грн</option>
-        <option value="Ламінування+фарбування+корекція (600грн)">Ламінування+фарбування+корекція — 600 грн</option>
-        <option value="Депіляція над верхньою губою (200грн)">Депіляція над верхньою губою — 200 грн</option>
-    </optgroup>
-    
-    <optgroup label="Комплекси">
-        <option value="Комплекс (1000 грн)">Комплекс (Ламінування + фарбування брів та вій) — 1000 грн</option>
-    </optgroup>
-</select>
+                        <option value="" disabled selected>Виберіть з переліку...</option>
+                        <optgroup label="Вії">
+                            <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
+                            <option value="Фарбування вій (150 грн)">Фарбування вій — 150 грн</option>
+                        </optgroup>
+                        <optgroup label="Брови">
+                            <option value="Корекція брів (200 грн)">Корекція брів — 200 грн</option>
+                            <option value="Фарбування+корекція (400 грн)">Фарбування+корекція — 400 грн</option>
+                            <option value="Ламінування+фарбування+корекція (600грн)">Ламінування+фарбування+корекція — 600 грн</option>
+                            <option value="Депіляція над верхньою губою (200грн)">Депіляція над верхньою губою — 200 грн</option>
+                        </optgroup>
+                        <optgroup label="Комплекси">
+                            <option value="Complex (1000 грн)">Комплекс (Ламінування + фарбування брів та вій) — 1000 грн</option>
+                        </optgroup>
+                    </select>
                 </div>
 
                 <div class="input-group">
@@ -91,11 +88,11 @@
         </div>
     </div>
 
-    <div id="success-modal" class="modal" style="display: none;">
+    <div id="success-modal" class="modal">
         <div class="modal-overlay" onclick="closeSuccessModal()"></div>
         <div class="modal-content" style="text-align: center;">
             <div class="success-icon-wrapper">
-                <svg class="success-brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
                     <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#a65e64"/>
                 </svg>
             </div>

@@ -34,11 +34,11 @@
                 <span class="name">Корекція брів</span>
                 <span class="price">200 грн</span>
             </div>
-            <div class="price-item" onclick="openModal('Фарбування+корекція (400 грн)')">
+            <div class="price-item" onclick="openModal('Фарбування + корекція (400 грн)')">
                 <span class="name">Фарбування + корекція</span>
                 <span class="price">400 грн</span>
             </div>
-            <div class="price-item" onclick="openModal('Ламінування+фарбування+корекція (600грн)')">
+            <div class="price-item" onclick="openModal('Ламінування + фарбування + корекція (600грн)')">
                 <span class="name">Ламінування + фарбування + корекція</span>
                 <span class="price">600 грн</span>
             </div>
@@ -46,28 +46,28 @@
                 <span class="name">Депіляція над верхньою губою</span>
                 <span class="price">200 грн</span>
             </div>
-            <div class="price-item" onclick="openModal('Комплекс (1000 грн)')">
-                <span class="name">Комплекс (Ламінування + фарбування брів та вій)</span>
+        </div>
+
+        <h2 class="category-title">Комплекси</h2>
+        <div class="price-list">
+            <div class="price-item" onclick="openModal('Комплекс (Ламінування вій та брів) (1000 грн)')">
+                <span class="name">Комплекс (Ламінування вій та брів)</span>
                 <span class="price">1000 грн</span>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <button onclick="openModal()" class="submit-btn" style="padding: 15px 0; font-size: 15px; letter-spacing: 2px;">ЗАПИСАТИСЯ НА ВІЗИТ</button>
-        </div>
-
     </main>
 
-    <div id="bookingModal" class="modal">
-        <div class="modal-overlay" onclick="closeModal()"></div>
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 class="modal-title">Запишіться на прийом</h2>
+    <div id="bookingModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 5000; align-items: center; justify-content: center;">
+        <div class="modal-overlay" onclick="closeModal()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(40, 20, 22, 0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);"></div>
+        <div class="modal-content" style="background-color: #f2e5df !important; position: relative; z-index: 5002; padding: 25px !important; border-radius: 24px !important; width: 88% !important; max-width: 340px !important; border: 2px solid #f8b3c6 !important; box-sizing: border-box !important;">
+            <span class="close-modal" onclick="closeModal()" style="position: absolute; top: 12px; right: 18px; font-size: 26px; color: #a65e64; cursor: pointer;">&times;</span>
+            <h2 class="modal-title" style="font-family: 'Playfair Display', serif !important; color: #4a1c1f !important; text-align: center !important; font-size: 22px !important; margin: 0 0 20px 0 !important;">Запишіться на прийом</h2>
             
             <form id="bookingForm">
-                <div class="input-group">
-                    <label>Оберіть послугу:</label>
-                    <select id="service" name="service" class="modal-input" required>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Оберіть послугу:</label>
+                    <select id="service" name="service" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
                         <option value="" disabled selected>Виберіть з переліку...</option>
                         <optgroup label="Вії">
                             <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
@@ -80,61 +80,60 @@
                             <option value="Депіляція над верхньою губою (200грн)">Депіляція над верхньою губою — 200 грн</option>
                         </optgroup>
                         <optgroup label="Комплекси">
-                            <option value="Комплекс (1000 грн)">Комплекс (Ламінування + фарбування брів та вій) — 1000 грн</option>
+                            <option value="Комплекс (1000 грн)">Комплекс (Ламінування вій та брів) — 1000 грн</option>
                         </optgroup>
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label>Ваше ім'я:</label>
-                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Ваше ім'я:</label>
+                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
                 </div>
 
-                <div class="input-group">
-                    <label>Номер телефону:</label>
-                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Номер телефону:</label>
+                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
                 </div>
 
-                <div class="row">
-                    <div class="input-group">
-                        <label>Дата:</label>
-                        <input type="date" name="date" class="modal-input" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Час:</label>
-                        <input type="time" name="time" class="modal-input" required>
-                    </div>
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Дата візиту:</label>
+                    <input type="date" name="date" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; display: flex !important; align-items: center !important; justify-content: flex-start !important; -webkit-appearance: none !important; appearance: none !important;">
+                </div>
+                
+                <div class="input-group" style="margin-bottom: 10px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Час візиту:</label>
+                    <input type="time" name="time" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; display: flex !important; align-items: center !important; justify-content: flex-start !important; -webkit-appearance: none !important; appearance: none !important;">
                 </div>
 
-                <div class="input-group">
-                    <label>Коментар:</label>
-                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..."></textarea>
+                <div class="input-group" style="margin-bottom: 12px !important;">
+                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Коментар:</label>
+                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..." style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; resize: none !important;"></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Підтвердити запис</button>
+                <button type="submit" class="submit-btn" style="background: #a65e64 !important; color: white !important; border: none !important; padding: 13px 0 !important; width: 100% !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; cursor: pointer !important; text-transform: uppercase; letter-spacing: 1px;">Підтвердити запис</button>
             </form>
-        </div> 
-    </div> 
+        </div>
+    </div>
 
-    <footer id="contacts" class="footer-section">
-        <div class="footer-content">
-            <h2 class="footer-title">Контакти</h2>
-            <p class="footer-subtitle">Чекаю на тебе у своїй затишній студії</p>
+    <footer class="footer-section">
+        <div class="footer-container">
+            <h2 class="footer-title">Mtlvdn Club</h2>
+            <p class="footer-subtitle">Студія естетики погляду</p>
             
             <div class="contact-links">
-                <a href="https://instagram.com/ТВІЙ_НІК" target="_blank" class="contact-item">
+                <a href="https://instagram.com/mtlvdn.club" target="_blank" class="contact-item">
                     <i class="fa-brands fa-instagram footer-icon"></i>
                     <span class="label">Instagram</span>
                 </a>
                 
-                <a href="https://t.me/ТВІЙ_НОМЕР" target="_blank" class="contact-item">
-                    <i class="fa-solid fa-paper-plane footer-icon"></i>
+                <a href="https://t.me/your_telegram" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-telegram footer-icon"></i>
                     <span class="label">Telegram</span>
                 </a>
                 
                 <div class="contact-item">
                     <i class="fa-solid fa-location-dot footer-icon"></i>
-                    <span class="label">Київ, вул. Твоя Адреса</span>
+                    <span class="label">Київ</span>
                 </div>
             </div>
 
@@ -144,29 +143,33 @@
         </div>
     </footer>
 
-    <div id="success-modal" class="modal">
+    <div id="success-modal" class="modal" style="display: none;">
         <div class="modal-overlay" onclick="closeSuccessModal()"></div>
-        <div class="modal-content" style="text-align: center;">
-            <div class="success-icon-wrapper">
+        <div class="modal-content" style="text-align: center; background-color: #f2e5df !important; padding: 25px !important; border-radius: 24px !important; width: 88% !important; max-width: 340px !important; border: 2px solid #f8b3c6 !important; box-sizing: border-box !important;">
+            <div style="margin-bottom: 15px !important; display: inline-block;">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
                     <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#a65e64"/>
                 </svg>
             </div>
             <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
             <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
-            <button onclick="closeSuccessModal()" class="submit-btn">Гаразд</button>
+            <button onclick="closeSuccessModal()" class="submit-btn" style="background: #a65e64 !important; color: white !important; border: none !important; padding: 13px 0 !important; width: 100% !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; cursor: pointer !important; text-transform: uppercase;">Гаразд</button>
         </div>
     </div>
 
-    <script src="script.js"></script> 
-</body>
-</html>
+    <script src="script.js"></script>
+    <script>
+        // Безпечний запуск скрипту після завантаження сторінки
+        window.onclick = function(event) {
             const modal = document.getElementById("bookingModal");
             const successModal = document.getElementById("success-modal");
-            if (event.target == modal) { closeModal(); }
-            if (event.target == successModal) { closeSuccessModal(); }
+            if (event.target == modal) { 
+                closeModal(); 
+            }
+            if (event.target == successModal) { 
+                closeSuccessModal(); 
+            }
         }
     </script>
-    <script src="script.js"></script> 
 </body>
 </html>

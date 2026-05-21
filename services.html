@@ -3,71 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Послуги | Mtlvdn Club</title>
+    <title>Mtlvdn Club — Прайс</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        /* Стильне та ніжне оформлення прайсу */
+        .beauty-price-container {
+            max-width: 550px !important;
+            margin: 0 auto !important;
+            padding: 40px 20px 80px 20px !important;
+            box-sizing: border-box;
+        }
+
+        .beauty-back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #a65e64;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            margin-bottom: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .beauty-back-btn:hover {
+            transform: translateX(-4px);
+            color: #4a1c1f;
+        }
+
+        .beauty-back-btn i {
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        .beauty-card {
+            background: #ffffff !important;
+            border: 1px solid rgba(248, 179, 198, 0.6) !important;
+            border-radius: 24px !important;
+            padding: 30px 25px !important;
+            margin-bottom: 35px !important;
+            box-shadow: 0 10px 25px rgba(166, 94, 100, 0.04) !important;
+        }
+
+        .beauty-title {
+            font-family: 'Playfair Display', serif !important;
+            font-style: italic !important;
+            font-weight: 600 !important;
+            font-size: 30px !important;
+            color: #4a1c1f !important;
+            text-align: center !important;
+            margin: 0 0 25px 0 !important;
+        }
+
+        .beauty-row {
+            display: flex !important;
+            align-items: baseline !important;
+            margin-bottom: 18px !important;
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .beauty-row:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .beauty-row .name {
+            font-size: 14px !important;
+            color: #4a1c1f !important;
+            font-weight: 400 !important;
+            line-height: 1.4;
+            max-width: 75%;
+        }
+
+        .beauty-row .dots {
+            flex-grow: 1 !important;
+            border-bottom: 1px dotted rgba(166, 94, 100, 0.3) !important;
+            margin: 0 10px !important;
+            position: relative;
+            top: -4px;
+        }
+
+        .beauty-row .price {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #a65e64 !important;
+            white-space: nowrap;
+        }
+
+        .beauty-card.highlight {
+            background: linear-gradient(135deg, #ffffff, #fff6f7) !important;
+            border: 1.5px solid #f8b3c6 !important;
+        }
+
+        /* Стиль головної кнопки запису */
+        .beauty-main-action-btn {
+            background: #a65e64;
+            border: 1px solid #f8b3c6;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(166, 94, 100, 0.2);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .beauty-main-action-btn:hover {
+            background: #4a1c1f;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(74, 28, 31, 0.25);
+        }
+    </style>
 </head>
 <body style="background-color: #f2e5df;">
 
-    <main class="services-container animate-fade">
+    <div class="beauty-price-container animate-fade">
         
-        <div style="text-align: left; margin-bottom: 30px;">
-            <a href="index.html" class="back-link">← На головну</a>
-        </div>
-        
-        <h2 class="category-title">Вії</h2>
-        <div class="price-list">
-            <div class="price-item" onclick="openModal('Ламінування+фарбування+ботокс (500грн)')">
+        <a href="index.html" class="beauty-back-btn">
+            <i class="fa-solid fa-arrow-left"></i> На головну
+        </a>
+
+        <div class="beauty-card">
+            <h2 class="beauty-title">Вії</h2>
+            
+            <div class="beauty-row">
                 <span class="name">Ламінування + фарбування + ботокс</span>
+                <div class="dots"></div>
                 <span class="price">500 грн</span>
             </div>
-            <div class="price-item" onclick="openModal('Фарбування вій (150 грн)')">
+            
+            <div class="beauty-row">
                 <span class="name">Фарбування вій</span>
+                <div class="dots"></div>
                 <span class="price">150 грн</span>
             </div>
         </div>
 
-        <h2 class="category-title">Брови</h2>
-        <div class="price-list">
-            <div class="price-item" onclick="openModal('Корекція брів (200 грн)')">
-                <span class="name">Корекція брів</span>
-                <span class="price">200 грн</span>
-            </div>
-            <div class="price-item" onclick="openModal('Фарбування + корекція (400 грн)')">
-                <span class="name">Фарбування + корекція</span>
-                <span class="price">400 грн</span>
-            </div>
-            <div class="price-item" onclick="openModal('Ламінування + фарбування + корекція (600грн)')">
-                <span class="name">Ламінування + фарбування + корекція</span>
-                <span class="price">600 грн</span>
-            </div>
-            <div class="price-item" onclick="openModal('Депіляція над верхньою губою (200грн)')">
-                <span class="name">Депіляція над верхньою губою</span>
-                <span class="price">200 грн</span>
+        <div class="beauty-card">
+            <h2 class="beauty-title">Брови</h2>
+            
+            <div class="beauty-card-rows">
+                <div class="beauty-row">
+                    <span class="name">Корекція брів</span>
+                    <div class="dots"></div>
+                    <span class="price">200 грн</span>
+                </div>
+                
+                <div class="beauty-row">
+                    <span class="name">Фарбування + корекція</span>
+                    <div class="dots"></div>
+                    <span class="price">400 грн</span>
+                </div>
+                
+                <div class="beauty-row">
+                    <span class="name">Ламінування + фарбування + корекція</span>
+                    <div class="dots"></div>
+                    <span class="price">600 грн</span>
+                </div>
+                
+                <div class="beauty-row">
+                    <span class="name">Депіляція над верхньою губою</span>
+                    <div class="dots"></div>
+                    <span class="price">200 грн</span>
+                </div>
             </div>
         </div>
 
-        <h2 class="category-title">Комплекси</h2>
-        <div class="price-list">
-            <div class="price-item" onclick="openModal('Комплекс (Ламінування вій та брів) (1000 грн)')">
-                <span class="name">Комплекс (Ламінування вій та брів)</span>
-                <span class="price">1000 грн</span>
+        <div class="beauty-card highlight">
+            <h2 class="beauty-title">Комплекси</h2>
+            
+            <div class="beauty-row">
+                <span class="name" style="font-weight: 500;">Комплекс (Ламінування вій та брів)</span>
+                <div class="dots" style="border-bottom-color: rgba(166, 94, 100, 0.5) !important;"></div>
+                <span class="price" style="font-size: 16px;">1000 грн</span>
             </div>
         </div>
 
-    </main>
+        <div style="text-align: center; margin-top: 50px;">
+            <button class="beauty-main-action-btn" onclick="openModal()">
+                Записатися на процедуру
+            </button>
+        </div>
 
-    <div id="bookingModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 5000; align-items: center; justify-content: center;">
-        <div class="modal-overlay" onclick="closeModal()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(40, 20, 22, 0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);"></div>
-        <div class="modal-content" style="background-color: #f2e5df !important; position: relative; z-index: 5002; padding: 25px !important; border-radius: 24px !important; width: 88% !important; max-width: 340px !important; border: 2px solid #f8b3c6 !important; box-sizing: border-box !important;">
-            <span class="close-modal" onclick="closeModal()" style="position: absolute; top: 12px; right: 18px; font-size: 26px; color: #a65e64; cursor: pointer;">&times;</span>
-            <h2 class="modal-title" style="font-family: 'Playfair Display', serif !important; color: #4a1c1f !important; text-align: center !important; font-size: 22px !important; margin: 0 0 20px 0 !important;">Запишіться на прийом</h2>
+    </div>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">Запишіться на прийом</h2>
             
             <form id="bookingForm">
-                <div class="input-group" style="margin-bottom: 10px !important;">
-                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Оберіть послугу:</label>
-                    <select id="service" name="service" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
+                <div class="input-group">
+                    <label>Оберіть послугу:</label>
+                    <select id="service" name="service" class="modal-input" required>
                         <option value="" disabled selected>Виберіть з переліку...</option>
                         <optgroup label="Вії">
                             <option value="Ламінування+фарбування+ботокс (500грн)">Ламінування+фарбування+ботокс — 500 грн</option>
@@ -85,55 +223,69 @@
                     </select>
                 </div>
 
-                <div class="input-group" style="margin-bottom: 10px !important;">
-                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Ваше ім'я:</label>
-                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
+                <div class="input-group">
+                    <label>Ваше ім'я:</label>
+                    <input type="text" name="name" class="modal-input" placeholder="Введіть ім'я" required>
                 </div>
 
-                <div class="input-group" style="margin-bottom: 10px !important;">
-                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Номер телефону:</label>
-                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important;">
+                <div class="input-group">
+                    <label>Номер телефону:</label>
+                    <input type="tel" name="phone" class="modal-input" placeholder="+380..." required>
                 </div>
 
-                <div class="input-group" style="margin-bottom: 10px !important;">
-                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Дата візиту:</label>
-                    <input type="date" name="date" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; display: flex !important; align-items: center !important; justify-content: flex-start !important; -webkit-appearance: none !important; appearance: none !important;">
+                <div class="input-group">
+                    <label>Дата візиту:</label>
+                    <input type="date" name="date" class="modal-input" required style="display: block !important; width: 100% !important; box-sizing: border-box !important;">
                 </div>
                 
-                <div class="input-group" style="margin-bottom: 10px !important;">
-                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Час візиту:</label>
-                    <input type="time" name="time" class="modal-input" required style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; display: flex !important; align-items: center !important; justify-content: flex-start !important; -webkit-appearance: none !important; appearance: none !important;">
+                <div class="input-group">
+                    <label>Час візиту:</label>
+                    <input type="time" name="time" class="modal-input" required style="display: block !important; width: 100% !important; box-sizing: border-box !important;">
                 </div>
 
-                <div class="input-group" style="margin-bottom: 12px !important;">
-                    <label style="display: block !important; font-family: 'Montserrat', sans-serif !important; font-size: 12px !important; color: #4a1c1f !important; margin-bottom: 4px !important; text-align: left !important;">Коментар:</label>
-                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..." style="width: 100% !important; padding: 10px 12px !important; border: 1.5px solid #f8b3c6 !important; border-radius: 12px !important; background: #ffffff !important; font-family: 'Montserrat', sans-serif !important; font-size: 14px !important; box-sizing: border-box !important; outline: none !important; resize: none !important;"></textarea>
+                <div class="input-group">
+                    <label>Коментар:</label>
+                    <textarea name="comment" class="modal-input" rows="3" placeholder="Ваші побажання..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn" style="background: #a65e64 !important; color: white !important; border: none !important; padding: 13px 0 !important; width: 100% !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; cursor: pointer !important; text-transform: uppercase; letter-spacing: 1px;">Підтвердити запис</button>
+                <button type="submit" class="submit-btn">Підтвердити запис</button>
             </form>
         </div>
     </div>
 
-    <footer class="footer-section">
-        <div class="footer-container">
-            <h2 class="footer-title">Mtlvdn Club</h2>
-            <p class="footer-subtitle">Студія естетики погляду</p>
+    <div id="success-modal" class="modal">
+        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+        <div class="modal-content" style="text-align: center;">
+            <div class="success-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
+                    <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#a65e64"/>
+                </svg>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
+            <button onclick="closeSuccessModal()" class="submit-btn">Гаразд</button>
+        </div>
+    </div>
+
+    <footer id="contacts" class="footer-section">
+        <div class="footer-content">
+            <h2 class="footer-title">Контакти</h2>
+            <p class="footer-subtitle">Чекаю на тебе у своїй затишній студії</p>
             
             <div class="contact-links">
-                <a href="https://instagram.com/mtlvdn.club" target="_blank" class="contact-item">
+                <a href="https://instagram.com/ТВІЙ_НІК" target="_blank" class="contact-item">
                     <i class="fa-brands fa-instagram footer-icon"></i>
                     <span class="label">Instagram</span>
                 </a>
                 
-                <a href="https://t.me/your_telegram" target="_blank" class="contact-item">
-                    <i class="fa-brands fa-telegram footer-icon"></i>
+                <a href="https://t.me/ТВІЙ_НОМЕР" target="_blank" class="contact-item">
+                    <i class="fa-solid fa-paper-plane footer-icon"></i>
                     <span class="label">Telegram</span>
                 </a>
                 
                 <div class="contact-item">
                     <i class="fa-solid fa-location-dot footer-icon"></i>
-                    <span class="label">Київ</span>
+                    <span class="label">Київ, вул. Твоя Адреса</span>
                 </div>
             </div>
 
@@ -143,33 +295,7 @@
         </div>
     </footer>
 
-    <div id="success-modal" class="modal" style="display: none;">
-        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
-        <div class="modal-content" style="text-align: center; background-color: #f2e5df !important; padding: 25px !important; border-radius: 24px !important; width: 88% !important; max-width: 340px !important; border: 2px solid #f8b3c6 !important; box-sizing: border-box !important;">
-            <div style="margin-bottom: 15px !important; display: inline-block;">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
-                    <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" fill="#a65e64"/>
-                </svg>
-            </div>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #4a1c1f; margin-bottom: 10px;">Дякуємо!</h3>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #5a3e3f; margin-bottom: 20px;">Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом!</p>
-            <button onclick="closeSuccessModal()" class="submit-btn" style="background: #a65e64 !important; color: white !important; border: none !important; padding: 13px 0 !important; width: 100% !important; border-radius: 12px !important; font-family: 'Montserrat', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; cursor: pointer !important; text-transform: uppercase;">Гаразд</button>
-        </div>
-    </div>
-
     <script src="script.js"></script>
-    <script>
-        // Безпечний запуск скрипту після завантаження сторінки
-        window.onclick = function(event) {
-            const modal = document.getElementById("bookingModal");
-            const successModal = document.getElementById("success-modal");
-            if (event.target == modal) { 
-                closeModal(); 
-            }
-            if (event.target == successModal) { 
-                closeSuccessModal(); 
-            }
-        }
-    </script>
+
 </body>
 </html>

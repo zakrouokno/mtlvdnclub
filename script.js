@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка отправки формы
     const bookingForm = document.getElementById('bookingForm'); 
-    if (bookingForm) { // Ця перевірка рятує головну сторінку від падіння!
+    if (bookingForm) { 
         bookingForm.addEventListener('submit', async function(e) {
             e.preventDefault(); 
             
@@ -74,79 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
 
-// Функції модального вікна
-function openModal(serviceValue) {
-    const modal = document.getElementById("bookingModal");
-    const select = document.getElementById("service");
-
-    if (select && serviceValue) {
-        select.value = serviceValue;
-    }
-
-    if (modal) {
-        modal.style.display = "flex"; 
-        document.body.style.overflow = "hidden"; 
-    }
-}
-
-function closeModal() {
-    const modal = document.getElementById("bookingModal");
-    if (modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto"; 
-    }
-}
-
-function closeSuccessModal() {
-    const successModal = document.getElementById("success-modal");
-    if (successModal) {
-        successModal.style.display = "none";
-    }
-}
-
-// Закрытие при клике вне окна
-window.onclick = function(event) {
-    const modal = document.getElementById("bookingModal");
-    const successModal = document.getElementById("success-modal");
-    
-    if (event.target == modal) {
-        closeModal();
-    }
-    if (event.target == successModal) {
-        closeSuccessModal();
-    }
-}
-// ФУНКЦІЯ ДЛЯ ПЛАВНОГО РОЗГОРТАННЯ FAQ
-function toggleFaq(element) {
-    const answer = element.querySelector('.faq-answer');
-    const icon = element.querySelector('.faq-icon');
-    
-    // Перевіряємо, чи цей пункт уже відкритий
-    if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-        answer.style.maxHeight = '0px';
-        icon.style.transform = 'rotate(0deg)';
-        element.style.borderColor = '#f8b3c6';
-    } else {
-        // Закриваємо всі інші відкриті питання (опціонально, для краси)
-        document.querySelectorAll('.faq-answer').forEach(el => el.style.maxHeight = '0px');
-        document.querySelectorAll('.faq-icon').forEach(el => el.style.transform = 'rotate(0deg)');
-        document.querySelectorAll('.faq-item').forEach(el => el.style.borderColor = '#f8b3c6');
-        
-        // Відкриваємо поточний пункт
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.style.transform = 'rotate(45deg)'; // Плюсик красиво перетворюється на хрестик
-        element.style.borderColor = '#a65e64'; // Рамка стає трохи темнішою
-    }
-}
-// ЧЕКАЄМО ЗАВАНТАЖЕННЯ СТОРІНКИ
-document.addEventListener("DOMContentLoaded", function () {
-    
     // --- 1. РОЗУМНЕ БЛОКУВАННЯ ДАТ ТА ЧАСУ ---
     const dateInput = document.querySelector('input[name="date"]');
     const timeInput = document.querySelector('input[name="time"]');
-    const bookingForm = document.getElementById('bookingForm');
 
     if (dateInput) {
         // Встановлюємо мінімальну дату (сьогодні)
@@ -173,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const currentMinute = now.getMinutes();
             const currentTimeString = `${currentHour < 10 ? '0' + currentHour : currentHour}:${currentMinute < 10 ? '0' + currentMinute : currentMinute}`;
 
-            // Перевірка 1: Якщо обрано сьогодні, час не має бути в минулому
+            // Перевірка: Якщо обрано сьогодні, час не має бути в минулому
             if (selectedDate === todayString && selectedTime < currentTimeString) {
                 alert("Ой, цей час на сьогодні вже минув. Будь ласка, оберіть пізніший час або інший день! ✨");
                 timeInput.value = "";
@@ -192,29 +123,22 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nameInput) {
         nameInput.addEventListener('input', function () {
             if (this.value.length > 0) {
-                // Робимо першу літеру великою
                 this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
             }
         });
     }
-
-    // --- 3. ЗАХИСТ ВІД СТИРАННЯ ДАНИХ ПРИ ЗАКРИТТІ ---
-    // Модалка тепер просто ховається (display: none), але поля форми НЕ очищуються автоматично,
-    // тому дані залишаються на місці, поки сторінка не оновиться або форма не відправиться!
 });
 
 // --- ГЛОБАЛЬНІ ФУНКЦІЇ ДЛЯ МОДАЛЬНОГО ВІКНА ---
 function openModal(serviceName = "") {
     const modal = document.getElementById('bookingModal');
     if (modal) {
-        modal.classList.add('active'); // або modal.style.display = 'flex'; в залежності від твоїх стилів
         modal.style.display = 'flex';
+        document.body.style.overflow = "hidden"; 
         
-        // Якщо передано конкретну послугу з картки — підставляємо її в селект
         if (serviceName) {
             const serviceSelect = document.getElementById('service');
             if (serviceSelect) {
-                // Шукаємо опцію, яка містить назву послуги
                 for (let option of serviceSelect.options) {
                     if (option.value.includes(serviceName)) {
                         serviceSelect.value = option.value;
@@ -230,7 +154,7 @@ function closeModal() {
     const modal = document.getElementById('bookingModal');
     if (modal) {
         modal.style.display = 'none';
-        // Ми НЕ очищуємо форму тут, щоб зберегти дані дівчинки, якщо вона випадково закрила вікно!
+        document.body.style.overflow = "auto"; 
     }
 }
 
@@ -241,57 +165,86 @@ function closeSuccessModal() {
     }
 }
 
-// Очищення форми робимо ТІЛЬКИ після успішної відправки
-const bForm = document.getElementById('bookingForm');
-if (bForm) {
-    bForm.addEventListener('submit', function(e) {
-        // Тут твій код відправки форми (наприклад, в телеграм чи на пошту)
-        // Після успішної відправки вікно успіху відкривається, а форма скидається:
-        // document.getElementById('success-modal').style.display = 'flex';
-        // bForm.reset(); 
-    });
-}
-// НАДЁЖНОЕ ОТКРЫТИЕ ВСЕЙ ВКЛАДКИ НА ТЕЛЕФОНАХ
-function toggleGlobalFaq(buttonElement) {
-    buttonElement.classList.toggle('active');
-    const container = document.getElementById('global-faq-container');
-    const icon = document.getElementById('main-faq-icon');
+// Закриття при клікові поза вікном
+window.onclick = function(event) {
+    const modal = document.getElementById("bookingModal");
+    const successModal = document.getElementById("success-modal");
     
-    if (container.style.maxHeight && container.style.maxHeight !== '0px') {
-        container.style.maxHeight = '0px';
-        icon.style.transform = 'rotate(0deg)';
-        buttonElement.style.borderColor = '#f8b3c6';
-    } else {
-        container.style.maxHeight = container.scrollHeight + 'px';
-        icon.style.transform = 'rotate(180deg)';
-        buttonElement.style.borderColor = '#a65e64';
+    if (event.target == modal) {
+        closeModal();
+    }
+    if (event.target == successModal) {
+        closeSuccessModal();
     }
 }
 
-// НАДЁЖНОЕ ОТКРЫТИЕ ОТДЕЛЬНЫХ ВОПРОСОВ НА ТЕЛЕФОНАХ
+// --- ФУНКЦІЇ ДЛЯ ІНТЕРАКТИВНОГО FAQ (ВКЛАДКИ ЧАСТІ ПИТАННЯ) ---
+
+// 1. ВІДКРИТТЯ ВСІЄЇ ВЕЛИКОЇ ВКЛАДКИ
+function toggleGlobalFaq(buttonElement) {
+    if (!buttonElement) return;
+    const container = document.getElementById('global-faq-container');
+    const icon = document.getElementById('main-faq-icon');
+    if (!container) return;
+
+    buttonElement.classList.toggle('active');
+
+    if (container.classList.contains('global-faq-open')) {
+        container.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        buttonElement.style.borderColor = '#f8b3c6';
+        container.classList.remove('global-faq-open');
+    } else {
+        container.style.maxHeight = container.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+        buttonElement.style.borderColor = '#a65e64';
+        container.classList.add('global-faq-open');
+    }
+}
+
+// 2. ВІДКРИТТЯ ТА ЗАКРИТТЯ ОКРЕНИХ ПИТАНЬ (БЕЗ БАГІВ НА ТЕЛЕФОНАХ)
 function toggleMobileFaq(element) {
+    if (!element) return;
     const answer = element.querySelector('.faq-answer');
     const icon = element.querySelector('.faq-icon');
     const globalContainer = document.getElementById('global-faq-container');
-    
-    // Закрываем все остальные открытые вопросы перед открытием нового
-    document.querySelectorAll('.faq-answer').forEach(el => el.style.maxHeight = '0px');
-    document.querySelectorAll('.faq-icon').forEach(el => el.style.transform = 'rotate(0deg)');
-    document.querySelectorAll('.faq-item').forEach(el => el.style.borderColor = '#f8b3c6');
+    if (!answer) return;
 
-    if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+    const isCurrentOpen = element.classList.contains('faq-item-open');
+
+    // Сворачиваем вообще все открытые вопросы, чтобы обнулить высоту
+    document.querySelectorAll('.faq-item').forEach(el => {
+        const ans = el.querySelector('.faq-answer');
+        const ic = el.querySelector('.faq-icon');
+        if (ans) ans.style.maxHeight = '0px';
+        if (ic) ic.style.transform = 'rotate(0deg)';
+        el.style.borderColor = '#f8b3c6';
+        el.classList.remove('faq-item-open');
+    });
+
+    // Если этот пункт был открыт — закрываем его (сброс уже произошел выше)
+    if (isCurrentOpen) {
         answer.style.maxHeight = '0px';
-        icon.style.transform = 'rotate(0deg)';
+        if (icon) icon.style.transform = 'rotate(0deg)';
         element.style.borderColor = '#f8b3c6';
-    } else {
-        // Открываем текущий ответ
+        element.classList.remove('faq-item-open');
+    } 
+    // Если был закрыт — плавно открываем его
+    else {
         answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.style.transform = 'rotate(45deg)';
+        if (icon) icon.style.transform = 'rotate(45deg)';
         element.style.borderColor = '#a65e64';
-        
-        // САМАЯ ВАЖНАЯ СТРОКА: Расширяем высоту главного контейнера, чтобы текст на телефоне не обрезался!
-        if (globalContainer) {
-            globalContainer.style.maxHeight = (globalContainer.scrollHeight + answer.scrollHeight) + 'px';
-        }
+        element.classList.add('faq-item-open');
+    }
+
+    // Пересчитываем общую высоту большой подложки на лету, чтобы на смартфонах ничего не резалось
+    if (globalContainer) {
+        setTimeout(function() {
+            let totalHeight = 0;
+            document.querySelectorAll('.faq-item').forEach(item => {
+                totalHeight += item.offsetHeight + 14; 
+            });
+            globalContainer.style.maxHeight = (totalHeight + 40) + 'px';
+        }, 150);
     }
 }

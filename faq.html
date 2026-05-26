@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Часті питання | Mtlvdn Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        .faq-page-wrapper {
+            max-width: 550px !important;
+            margin: 0 auto !important;
+            padding: 40px 20px 80px 20px !important;
+            box-sizing: border-box;
+        }
+
+        .faq-back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #a65e64;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            margin-bottom: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-back-btn:hover {
+            transform: translateX(-4px);
+            color: #4a1c1f;
+        }
+
+        .faq-back-btn i {
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+        .faq-page-title {
+            font-family: 'Playfair Display', serif !important;
+            font-style: italic !important;
+            font-weight: 600 !important;
+            font-size: 32px !important;
+            color: #4a1c1f !important;
+            text-align: center !important;
+            margin: 0 0 35px 0 !important;
+        }
+    </style>
+</head>
+<body style="background-color: #f2e5df;">
+
+    <div class="faq-page-wrapper animate-fade">
+        
+        <a href="index.html" class="faq-back-btn">
+            <i class="fa-solid fa-arrow-left"></i> На головну
+        </a>
+
+        <h1 class="faq-page-title">Часті питання</h1>
+
+        <div class="faq-container" style="display: flex; flex-direction: column; gap: 12px;">
+            
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>1. Скільки тримається ламінування?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Ефект від ламінування зазвичай тримається від 1 до 2 місяців (4–8 тижнів). Це залежить від природного циклу оновлення волосків та правильного догляду після процедури.<br><br><strong>Важливо:</strong> ефект на віях не зникає раптово в один день — він поступово слабшає, тому навіть на 7–8 тижні частина вій ще може зберігати вигин.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>2. Чи можна мочити вії після процедури?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Ні, протягом перших кількох годин варто уникати контакту з водою, не терти очі та не чіпати вії руками.<br><br>У кінці дня обов’язково потрібно змити залишки складників і фарбника — це важлива частина догляду після ламінування. Також бажано утриматися від відвідування сауни, солярію, СПА та басейну в першу добу після процедури.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>3. Чи псує ламінування свої вії або брови?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Ні, при правильному виконанні процедури, використанні якісних матеріалів та належному догляді ламінування не шкодить волоскам.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>4. Скільки тримається фарба на бровах?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">На шкірі фарба тримається до 7 днів, а на волосках — приблизно 3–4 тижні.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>5. Чи потрібен догляд після процедури?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, важливо використовувати олійки або спеціальні засоби для живлення волосків, а також не терти зону брів і вій.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>6. Як часто можна робити ламінування?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Рекомендується повторювати процедуру не частіше ніж один раз на 1,5–2 місяці.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>7. Чи можна користуватись тушшю після ламінування?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, але бажано не раніше ніж через 24 години після процедури. Краще використовувати неводостійку туш.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>8. Чи можна робити процедуру після нарощення вій?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, але тільки після повного зняття нарощених вій.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>9. Чи може бути алергія на фарбу або склади?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, у людей із чутливою шкірою можлива алергічна реакція, тому за бажанням можна попередньо зробити тест на алергію.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>10. Що таке ламінування брів або вій?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Ламінування — це процедура, яка допомагає надати бровам і віям більш доглянутого та виразного вигляду.<br><br>Вії стають підкрученими, візуально довшими та об’ємнішими, а брови — більш слухняними, акуратно вкладеними та густішими на вигляд. Під час процедури також часто виконується фарбування та живлення волосків.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>11. Як довго триває процедура?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">У середньому процедура займає від 40 хвилин до 1,5 години.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>12. Чи є протипоказання?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, процедуру не рекомендується робити при захворюваннях очей, подразненнях шкіри, алергічних reactions, відкритих ранках або відразу після косметологічних процедур у зоні брів чи очей.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>13. Чи можна робити ламінування при чутливій шкірі?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, але важливо заздалегідь попередити майстра про чутливість шкіри. За потреби можна зробити тест на алергію, щоб процедура була максимально комфортною та безпечною.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>14. Що робити, якщо результат не сподобався?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Потрібно повідомити майстра про свої побажання. За можливості можна зробити корекцію або записатися на повторну консультацію.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" style="background: #ffffff; border: 1.5px solid #f8b3c6; border-radius: 16px; overflow: hidden; transition: all 0.3s ease;" onclick="togglePageFaq(this)">
+                <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 500; color: #4a1c1f;">
+                    <span>15. Чи можна робити ламінування перед морем?</span>
+                    <i class="fa-solid fa-plus faq-icon" style="color: #a65e64; transition: transform 0.3s ease; font-size: 14px;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.6; color: #5a3e3f; background: #fffbfb;">
+                    <p style="padding: 0 20px 18px 20px; margin: 0;">Так, але бажано робити процедуру за 3–5 днів до відпочинку. Важливу роль відіграє зволоження волосків, тому за потреби майстер може підібрати доглядові засоби.<br><br>Після контакту із солоною водою важливо промивати вії та брови прісною водою.<br><br>Щодо брів — перед відпочинком чудово підійде звичайне фарбування — це більш практичний варіант для моря та спеки.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer id="contacts" class="footer-section">
+        <div class="footer-content">
+            <h2 class="footer-title">Контакти</h2>
+            <p class="footer-subtitle">Чекаю на тебе у своїй затишній студії</p>
+            
+            <div class="contact-links">
+                <a href="https://instagram.com/ТВІЙ_НІК" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-instagram footer-icon"></i>
+                    <span class="label">Instagram</span>
+                </a>
+                
+                <a href="https://t.me/ТВІЙ_НОМЕР" target="_blank" class="contact-item">
+                    <i class="fa-solid fa-paper-plane footer-icon"></i>
+                    <span class="label">Telegram</span>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Mtlvdn Club. Made with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

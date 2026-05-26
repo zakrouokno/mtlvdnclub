@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- ГЛОБАЛЬНІ ФУНКЦІЇ ДЛЯ МОДАЛЬНОГО ВІКНА ---
+// --- ГЛОБАЛЬНІ ФУНКЦІЇ ДЛЯ МОДАЛЬНИХ ВІКОН ---
 function openModal(serviceName = "") {
     const modal = document.getElementById('bookingModal');
     if (modal) {
@@ -165,54 +165,17 @@ function closeSuccessModal() {
     }
 }
 
-// Закриття при клікові поза вікном
-window.onclick = function(event) {
-    const modal = document.getElementById("bookingModal");
-    const successModal = document.getElementById("success-modal");
-    
-    if (event.target == modal) {
-        closeModal();
-    }
-    if (event.target == successModal) {
-        closeSuccessModal();
-    }
-}
-
-// --- ФУНКЦІЇ ДЛЯ ІНТЕРАКТИВНОГО FAQ (ВКЛАДКИ ЧАСТІ ПИТАННЯ) ---
-
-// 1. ВІДКРИТТЯ ВСІЄЇ ВЕЛИКОЇ ВКЛАДКИ
-function toggleGlobalFaq(buttonElement) {
-    if (!buttonElement) return;
-    const container = document.getElementById('global-faq-container');
-    const icon = document.getElementById('main-faq-icon');
-    if (!container) return;
-
-    buttonElement.classList.toggle('active');
-
-    if (container.classList.contains('global-faq-open')) {
-        container.style.maxHeight = '0px';
-        if (icon) icon.style.transform = 'rotate(0deg)';
-        buttonElement.style.borderColor = '#f8b3c6';
-        container.classList.remove('global-faq-open');
-    } else {
-        container.style.maxHeight = container.scrollHeight + 'px';
-        if (icon) icon.style.transform = 'rotate(180deg)';
-        buttonElement.style.borderColor = '#a65e64';
-        container.classList.add('global-faq-open');
-    }
-}
-
-// 2. ВІДКРИТТЯ ТА ЗАКРИТТЯ ОКРЕНИХ ПИТАНЬ (БЕЗ БАГІВ НА ТЕЛЕФОНАХ)
-function toggleMobileFaq(element) {
+// Залізобетонна мобільна функція для відкриття та закриття питань НА ОКРЕМІЙ СТОРІНЦІ
+function togglePageFaq(element) {
     if (!element) return;
     const answer = element.querySelector('.faq-answer');
     const icon = element.querySelector('.faq-icon');
-    const globalContainer = document.getElementById('global-faq-container');
+    
     if (!answer) return;
 
     const isCurrentOpen = element.classList.contains('faq-item-open');
 
-    // Сворачиваем вообще все открытые вопросы, чтобы обнулить высоту
+    // Сворачиваем вообще все остальные открытые вопросы
     document.querySelectorAll('.faq-item').forEach(el => {
         const ans = el.querySelector('.faq-answer');
         const ic = el.querySelector('.faq-icon');
@@ -222,29 +185,31 @@ function toggleMobileFaq(element) {
         el.classList.remove('faq-item-open');
     });
 
-    // Если этот пункт был открыт — закрываем его (сброс уже произошел выше)
+    // Если этот пункт был открыт — закрываем его
     if (isCurrentOpen) {
         answer.style.maxHeight = '0px';
         if (icon) icon.style.transform = 'rotate(0deg)';
         element.style.borderColor = '#f8b3c6';
         element.classList.remove('faq-item-open');
     } 
-    // Если был закрыт — плавно открываем его
+    // Если был закрыт — плавно открываем
     else {
         answer.style.maxHeight = answer.scrollHeight + 'px';
         if (icon) icon.style.transform = 'rotate(45deg)';
         element.style.borderColor = '#a65e64';
         element.classList.add('faq-item-open');
     }
+}
 
-    // Пересчитываем общую высоту большой подложки на лету, чтобы на смартфонах ничего не резалось
-    if (globalContainer) {
-        setTimeout(function() {
-            let totalHeight = 0;
-            document.querySelectorAll('.faq-item').forEach(item => {
-                totalHeight += item.offsetHeight + 14; 
-            });
-            globalContainer.style.maxHeight = (totalHeight + 40) + 'px';
-        }, 150);
+// Закриття при клікові поза модалкою
+window.onclick = function(event) {
+    const modal = document.getElementById("bookingModal");
+    const successModal = document.getElementById("success-modal");
+    
+    if (event.target == modal) {
+        closeModal();
+    }
+    if (event.target == successModal) {
+        closeSuccessModal();
     }
 }

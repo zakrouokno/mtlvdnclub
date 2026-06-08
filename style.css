@@ -725,12 +725,15 @@ textarea.modal-input { resize: none !important; }
         box-sizing: border-box !important;
     }
 }
+@media (max-width: 480px) {
+    .contact-links {
+        gap: 15px !important; /* Уменьшаем расстояние между иконками */
+        justify-content: center;
+        flex-wrap: nowrap; /* Запрещаем перенос на вторую строку */
     }
 
-    .submit-btn {
-        padding: 12px 0 !important;    
-        font-size: 14px !important;    
-        border-radius: 10px !important;
-        margin-top: 5px !important;
+    .contact-item .label {
+        font-size: 10px; /* Слегка уменьшаем текст под иконками */
+        letter-spacing: 0.5px; /* Немного сужаем расстояние между буквами */
     }
 }

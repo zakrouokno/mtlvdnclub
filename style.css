@@ -725,15 +725,30 @@ textarea.modal-input { resize: none !important; }
         box-sizing: border-box !important;
     }
 }
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .contact-links {
-        gap: 15px !important; /* Уменьшаем расстояние между иконками */
-        justify-content: center;
-        flex-wrap: nowrap; /* Запрещаем перенос на вторую строку */
+        display: flex !important;
+        flex-direction: row !important; /* Строго в ряд */
+        justify-content: space-between !important; /* Равномерно по ширине */
+        gap: 8px !important; /* Минимальный зазор */
+        max-width: 95% !important; /* Не даем блоку выходить за края */
+        margin: 20px auto !important; /* Центрируем сам блок */
+    }
+
+    .contact-item {
+        flex: 1 1 auto !important; /* Позволяем элементам сжиматься */
+        min-width: 0 !important;
     }
 
     .contact-item .label {
-        font-size: 10px; /* Слегка уменьшаем текст под иконками */
-        letter-spacing: 0.5px; /* Немного сужаем расстояние между буквами */
+        font-size: 9px !important; /* Еще чуть меньше шрифт */
+        letter-spacing: -0.2px !important; /* Сжимаем буквы, чтобы адрес влез */
+        white-space: nowrap !important; /* Запрещаем перенос текста */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Если совсем не влезет — будет троеточие */
+    }
+
+    .footer-icon {
+        font-size: 20px !important; /* Немного уменьшим сами иконки */
     }
 }

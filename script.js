@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btn) btn.innerText = "Відправка...";
 
             const token = "8619653075:AAFjQ8rzhTqXlDV3gmWl_IZVopxk1B2c0ak";
-            const chatId = "6299034881";
+            const chatId = "6299034881,1131691925";
             
             // Зчитуємо дані безпечно
             const serviceField = bookingForm.querySelector('[name="service"]');

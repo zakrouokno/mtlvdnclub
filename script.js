@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btn) btn.innerText = "Відправка...";
 
             const token = "8619653075:AAFjQ8rzhTqXlDV3gmWl_IZVopxk1B2c0ak";
-            const chatId = "6299034881,1131691925";
+            // Сделали массив из двух ID администраторов
+            const chatIds = ["6299034881", "1131691925"];
             
             // Зчитуємо дані безпечно
             const serviceField = bookingForm.querySelector('[name="service"]');
@@ -55,9 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
                          `💬 Коментар: ${encodeURIComponent(commentVal)}`;
 
             try {
-                const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${text}`);
+                let allSuccessful = true;
+
+                // Цикл отправки сообщения каждому администратору по очереди
+                for (const chatId of chatIds) {
+                    try {
+                        const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${text}`);
+                        if (!response.ok) {
+                            allSuccessful = false;
+                            console.error(`Ошибка отправки для ID: ${chatId}`);
+                        }
+                    } catch (fetchErr) {
+                        allSuccessful = false;
+                        console.error(`Ошибка сети при отправке для ID: ${chatId}`, fetchErr);
+                    }
+                }
                 
-                if (response.ok) {
+                // Если хотя бы одному ушло успешно — считаем отправку выполненной
+                if (allSuccessful) {
                     closeModal(); 
                     const successModal = document.getElementById('success-modal');
                     if (successModal) {
@@ -65,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     bookingForm.reset();
                 } else {
-                    alert('Помилка відправки. Перевір токен або налаштування бота.');
+                    alert('Помилка відправки. Перевір токен, ID або налаштування бота.');
                 }
             } catch (err) {
                 alert('Помилка мережі: ' + err.message);
@@ -73,49 +89,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (btn) btn.innerText = originalText;
             }
         });
-    }
 
-    // --- 1. РОЗУМНЕ БЛОКУВАННЯ ДАТ ТА ЧАСУ ---
-    const dateInput = document.querySelector('input[name="date"]');
-    const timeInput = document.querySelector('input[name="time"]');
-
-    if (dateInput) {
-        // Встановлюємо мінімальну дату (сьогодні)
+        // Находим элементы для валидации даты и времени (чтобы код ниже не ломался)
         const today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1;
-        let dd = today.getDate();
+        const dateInput = bookingForm.querySelector('[name="date"]');
+        const timeInput = bookingForm.querySelector('[name="time"]');
 
-        if (mm < 10) mm = '0' + mm;
-        if (dd < 10) dd = '0' + dd;
+        if (dateInput && timeInput) {
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1;
+            let dd = today.getDate();
 
-        const todayString = `${yyyy}-${mm}-${dd}`;
-        dateInput.setAttribute('min', todayString);
+            if (mm < 10) mm = '0' + mm;
+            if (dd < 10) dd = '0' + dd;
 
-        // Функція перевірки часу
-        function validateTime() {
-            if (!timeInput.value) return true;
+            const todayString = `${yyyy}-${mm}-${dd}`;
+            dateInput.setAttribute('min', todayString);
 
-            const selectedDate = dateInput.value;
-            const selectedTime = timeInput.value;
-            
-            const now = new Date();
-            const currentHour = now.getHours();
-            const currentMinute = now.getMinutes();
-            const currentTimeString = `${currentHour < 10 ? '0' + currentHour : currentHour}:${currentMinute < 10 ? '0' + currentMinute : currentMinute}`;
+            // Функція перевірки часу
+            function validateTime() {
+                if (!timeInput.value) return true;
 
-            // Перевірка: Якщо обрано сьогодні, час не має бути в минулому
-            if (selectedDate === todayString && selectedTime < currentTimeString) {
-                alert("Ой, цей час на сьогодні вже минув. Будь ласка, оберіть пізніший час або інший день! ✨");
-                timeInput.value = "";
-                return false;
+                const selectedDate = dateInput.value;
+                const selectedTime = timeInput.value;
+                
+                const now = new Date();
+                const currentHour = now.getHours();
+                const currentMinute = now.getMinutes();
+                const currentTimeString = `${currentHour < 10 ? '0' + currentHour : currentHour}:${currentMinute < 10 ? '0' + currentMinute : currentMinute}`;
+
+                // Перевірка: Якщо обрано сьогодні, час не має бути в минулому
+                if (selectedDate === todayString && selectedTime < currentTimeString) {
+                    alert("Ой, цей час на сьогодні вже минув. Будь ласка, оберіть пізніший час або інший день! ✨");
+                    timeInput.value = "";
+                    return false;
+                }
+                return true;
             }
-            return true;
-        }
 
-        // Слідкуємо за зміною дати та часу
-        dateInput.addEventListener('change', validateTime);
-        timeInput.addEventListener('change', validateTime);
+            // Слідкуємо за зміною дати та часу
+            dateInput.addEventListener('change', validateTime);
+            timeInput.addEventListener('change', validateTime);
+        }
     }
 
     // --- 2. АВТО-ВЕЛИКА ЛІТЕРА В ІМЕНІ ---
